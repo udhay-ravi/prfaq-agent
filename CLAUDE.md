@@ -134,6 +134,9 @@ Using all previous dimensions as context, autonomously write:
 13. Ask the user if they want to modify any AI-generated sections
 14. Iterate until the user is satisfied
 
+**Auto Mode (`/auto`):**
+Runs the entire pipeline end-to-end with minimal interruptions. Problem & Solution are still interactive, but everything else (sub-agents, dimension generation, export, format conversion) runs automatically without approval gates. Use `/auto` for a hands-off experience.
+
 ### Gathering Rules (for Problem & Solution only)
 
 - Complete ONE dimension at a time before moving to the next
@@ -178,6 +181,7 @@ Using all previous dimensions as context, autonomously write:
 - `/competitive-analysis` — Run deep competitive analysis sub-agent (landscape, SWOT, feature matrix)
 - `/pricing-analysis` — Run pricing evaluation sub-agent (pricing model, tiers, spreadsheet)
 - `/deep-analysis` — Run all 3 sub-agents in sequence
+- `/auto` — Run the full PRFAQ pipeline end-to-end (gather → analyze → generate → export) with minimal interruptions
 - `/help` — Show all commands and tips
 
 ## File Management

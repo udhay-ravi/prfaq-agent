@@ -34,6 +34,7 @@ cat > "$SESSION_DIR/session.json" << EOF
   "createdAt": "$TIMESTAMP",
   "updatedAt": "$TIMESTAMP",
   "status": "in-progress",
+  "mode": "normal",
   "currentDimension": 1,
   "dimensions": {
     "problem": { "status": "not-started", "source": "user-input", "data": {} },

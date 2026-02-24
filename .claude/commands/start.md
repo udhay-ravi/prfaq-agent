@@ -19,6 +19,7 @@ Start a new PRFAQ session.
   "createdAt": "<ISO timestamp>",
   "updatedAt": "<ISO timestamp>",
   "status": "in-progress",
+  "mode": "normal",
   "currentDimension": 1,
   "dimensions": {
     "problem": { "status": "not-started", "source": "user-input", "data": {} },

@@ -229,6 +229,35 @@ Update the total done/inProgress/todo counts after each dimension.
 
 When all 7 dimensions are complete, show summary with all dimensions listed (Problem, Solution as User Input; Evidence, Product Positioning, Impact, Roadmap, Risks as AI Generated) and suggest /review, /export, /artifacts, or /status.
 
+## Auto Mode
+
+When `session.json` has `"mode": "auto"` (set by `/auto` command), the following behavior changes apply:
+
+### Phase 2A Changes (Sub-Agents)
+- Do **NOT** pause for user approval between sub-agents — run all three continuously
+- For Pricing Evaluation: **skip** the user questions step (Step 0). Use default sensitivity scenarios instead
+- Still save all results to session.json incrementally for crash recovery
+
+### Phase 2B Changes (PRFAQ Dimensions)
+- Do **NOT** pause for user approval between dimensions — generate all 5 in sequence
+- Still save each dimension to session.json as completed (for crash recovery)
+- Show brief progress indicators but don't wait for feedback
+
+### Phase 3 Changes (Export)
+- After all dimensions are complete, automatically proceed to:
+  1. Draft the full PRFAQ via `prfaq-draft.skill.md`
+  2. Run quality review via `prfaq-review.skill.md`
+  3. If score < 3.5/5, auto-revise weak sections (up to 2 attempts)
+  4. Export via `prfaq-export.skill.md`
+  5. Generate artifact board via `prfaq-artifacts.skill.md`
+  6. Generate ALL format exports (PDF + DOCX + HTML) via `prfaq-formats.skill.md`
+- Present the complete final summary at the end
+
+### What Stays the Same
+- Phase 1 (Problem & Solution gathering) is always interactive — user must provide input
+- All data is saved incrementally — user can resume if context runs out
+- User can switch to normal mode anytime with `/resume`
+
 ## Handling "Skip" Requests
 
 - For Problem or Solution: explain these require user input as they are the foundation

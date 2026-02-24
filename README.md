@@ -29,6 +29,10 @@ This is a **Claude Code agent** — not a traditional application. You interact 
    ```
    /start
    ```
+   Or run in **auto mode** for a hands-off experience:
+   ```
+   /auto
+   ```
 
 3. **Phase 1 — You answer questions** about two dimensions:
    - **Problem** — What customer problem are you solving?
@@ -68,6 +72,7 @@ This is a **Claude Code agent** — not a traditional application. You interact 
 | `/competitive-analysis`| Run deep competitive evaluation                   |
 | `/pricing-analysis`    | Run pricing evaluation + spreadsheet              |
 | `/deep-analysis`       | Run all 3 analysis sub-agents in sequence         |
+| `/auto`                | Full pipeline end-to-end with minimal interruptions |
 | `/help`                | Show all commands and tips                        |
 
 ## The 7 Dimensions
@@ -98,6 +103,7 @@ prfaq-agent/
 │   ├── competitive-analysis.md
 │   ├── pricing-analysis.md
 │   ├── deep-analysis.md
+│   ├── auto.md
 │   └── help.md
 ├── samples/                     # Drop your org's PRFAQs here
 │   └── README.md                # Instructions for adding samples
@@ -217,6 +223,23 @@ Produces a standalone report + Google Sheets-compatible spreadsheet:
 6. Full reports are referenced in the PRFAQ appendix
 7. Run `/deep-analysis` to execute all three manually, or run each individually
 8. Upload DOCX files to Google Drive for collaborative editing; import CSV into Google Sheets
+
+## Auto Mode
+
+For a hands-off experience, use `/auto` instead of `/start`. You still answer the Problem & Solution questions interactively, but everything else runs automatically without pausing for approval:
+
+| Step | Normal Mode | Auto Mode |
+|------|------------|-----------|
+| Problem & Solution | Interactive (same) | Interactive (same) |
+| Sub-agent approval | Pause after each | No pauses |
+| Pricing questions | Asks you first | Uses default scenarios |
+| Dimension approval | Pause after each | No pauses |
+| Export | Manual `/export` | Automatic |
+| Format export | User chooses | All formats (PDF + DOCX + HTML) |
+| Quality review | Manual | Auto-revise if score < 3.5/5 |
+
+**Normal flow:** `/start` → answer questions → approve each step → `/export`
+**Auto flow:** `/auto` → answer questions → everything else runs → final review
 
 ## Output
 

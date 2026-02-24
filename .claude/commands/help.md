@@ -22,6 +22,8 @@ Show the following:
   │ /competitive-analysis│ Run deep competitive analysis sub-agent │
   │ /pricing-analysis    │ Run pricing evaluation sub-agent        │
   │ /deep-analysis       │ Run all 3 sub-agents in sequence        │
+  │ /auto                │ Full pipeline: gather → analyze →       │
+  │                      │ generate → export (minimal interrupts)  │
   │ /help                │ Show this help message                  │
   └──────────────────────┴─────────────────────────────────────────┘
 
@@ -103,12 +105,24 @@ Show the following:
   • Review AI-generated sections carefully and provide feedback
   • A good PRFAQ should be understandable by anyone in the company
 
-  Typical Workflow:
+  Auto Mode (/auto):
+  Want everything done with minimal interruptions?
+  Run /auto and just answer the Problem & Solution questions.
+  The agent handles everything else automatically:
+  sub-agents → dimensions → draft → review → export → formats.
+  You get one final review at the end.
+
+  Typical Workflow (Manual):
   1. /start     → Answer questions about Problem & Solution
   2. /status    → Check progress as AI generates sections
   3. /review    → Get feedback and quality score
   4. /export    → Generate final document + artifact board
   5. /artifacts → View kanban board of all deliverables
+
+  Typical Workflow (Auto):
+  1. /auto      → Answer Problem & Solution, then sit back
+  2. /review    → (Optional) Re-review if you want changes
+  3. Done! All files generated automatically.
 
   Session Files:
   All your work is saved in output/<product-name>/
