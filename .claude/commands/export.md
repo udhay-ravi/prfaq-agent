@@ -63,3 +63,17 @@ Generate the final PRFAQ document and artifact board from the current session.
    ```
 
 9. Update `session.json` with `"status": "exported"` and the export timestamp.
+
+10. **Offer Format Export:**
+    After the markdown export is complete, ask the user:
+    ```
+    📦 Would you also like to export in another format?
+      (a) PDF — Professional styled document
+      (b) Google Doc — DOCX file you can upload to Google Docs
+      (c) HTML — Styled web page
+      (d) All formats — PDF + DOCX + HTML
+      (e) No thanks — Markdown is fine
+
+    You can also run /save-as anytime later.
+    ```
+    If the user selects a format, read `skills/prfaq-formats.skill.md` and follow its instructions to convert the exported `final-prfaq.md` to the requested format(s).

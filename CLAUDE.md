@@ -165,6 +165,7 @@ Using all previous dimensions as context, autonomously write:
 - `/resume` — Resume an existing PRFAQ (lists available sessions)
 - `/status` — Show completion status of current PRFAQ
 - `/export` — Generate the final PRFAQ document + artifact board
+- `/save-as` — Export PRFAQ to PDF, Google Doc (DOCX), or HTML format
 - `/review` — Get an AI review and score of the PRFAQ
 - `/artifacts` — Show kanban board of all produced artifacts
 - `/help` — Show all commands and tips
@@ -176,6 +177,7 @@ Using all previous dimensions as context, autonomously write:
 - `draft.md` is the working PRFAQ document
 - `final-prfaq.md` is the exported final document
 - `artifacts-board.md` is the kanban board of all produced artifacts
+- `final-prfaq.pdf` / `final-prfaq.docx` / `final-prfaq.html` — Optional format exports via `/save-as`
 - Never overwrite without confirmation
 
 ## Artifact Tracking
@@ -192,6 +194,7 @@ This agent uses skill files in the `skills/` directory:
 - `prfaq-export.skill.md` — Exporting to the final formatted document
 - `prfaq-artifacts.skill.md` — Generating the kanban artifact board of all produced deliverables
 - `prfaq-samples.skill.md` — Loading and analyzing sample PRFAQs to match org style
+- `prfaq-formats.skill.md` — Exporting PRFAQ to PDF, DOCX (Google Docs), and HTML formats
 
 ## Templates
 
@@ -199,6 +202,7 @@ Templates in the `templates/` directory provide structure and guidance:
 
 - `prfaq-template.md` — Master document template
 - `section-*.md` — Per-section templates with prompts and examples
+- `prfaq-style.css` — CSS stylesheet for styled HTML and PDF exports
 
 ## Samples
 

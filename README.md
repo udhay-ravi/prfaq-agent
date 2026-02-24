@@ -61,6 +61,7 @@ This is a **Claude Code agent** — not a traditional application. You interact 
 | `/resume`    | Resume an existing PRFAQ session           |
 | `/status`    | Check progress on current PRFAQ            |
 | `/export`    | Generate final PRFAQ document + artifacts  |
+| `/save-as`   | Export as PDF, Google Doc (DOCX), or HTML  |
 | `/review`    | Get AI review and quality score            |
 | `/artifacts` | Show kanban board of all produced artifacts|
 | `/help`      | Show all commands and tips                 |
@@ -87,6 +88,7 @@ prfaq-agent/
 │   ├── resume.md
 │   ├── status.md
 │   ├── export.md
+│   ├── save-as.md
 │   ├── review.md
 │   └── help.md
 ├── samples/                     # Drop your org's PRFAQs here
@@ -97,7 +99,8 @@ prfaq-agent/
 │   ├── prfaq-review.skill.md    # Quality review & scoring (7 dimensions)
 │   ├── prfaq-export.skill.md    # Final document export
 │   ├── prfaq-artifacts.skill.md # Kanban artifact board generation
-│   └── prfaq-samples.skill.md   # Sample PRFAQ loader & style analyzer
+│   ├── prfaq-samples.skill.md   # Sample PRFAQ loader & style analyzer
+│   └── prfaq-formats.skill.md   # PDF, DOCX, HTML export formats
 ├── templates/                   # Section templates with guidance
 │   ├── prfaq-template.md        # Master PRFAQ template (12 sections)
 │   ├── section-problem.md
@@ -106,7 +109,8 @@ prfaq-agent/
 │   ├── section-positioning.md   # NEW: Product Positioning template
 │   ├── section-impact.md
 │   ├── section-roadmap.md
-│   └── section-risks.md
+│   ├── section-risks.md
+│   └── prfaq-style.css         # CSS for HTML/PDF export styling
 ├── examples/                    # Reference example
 │   └── example-prfaq.md         # Complete example PRFAQ (all 7 dimensions)
 ├── output/                      # Generated PRFAQs (gitignored)
@@ -170,10 +174,31 @@ The agent produces a complete PRFAQ document in markdown format, including:
 - Internal FAQs (stakeholder-facing)
 - Appendix with data sources
 
+## Export Formats
+
+After generating your PRFAQ with `/export`, use `/save-as` to convert to additional formats:
+
+| Format | Command | Tool Used | Output |
+|--------|---------|-----------|--------|
+| **PDF** | `/save-as pdf` | pandoc or md-to-pdf | `final-prfaq.pdf` |
+| **Google Doc** | `/save-as gdoc` | pandoc | `final-prfaq.docx` (upload to Google Docs) |
+| **HTML** | `/save-as html` | pandoc or manual | `final-prfaq.html` (styled with CSS) |
+| **All** | `/save-as all` | — | All three formats |
+
+The `/export` command also prompts you to choose a format after the markdown export completes.
+
+### Format Tool Requirements (Optional)
+
+For PDF and DOCX export, one of these tools should be available:
+
+- **[pandoc](https://pandoc.org/)** — Recommended. Handles PDF, DOCX, and HTML (`brew install pandoc`)
+- **[md-to-pdf](https://www.npmjs.com/package/md-to-pdf)** — PDF alternative via `npx md-to-pdf` (no install needed)
+- If no tools are available, the agent generates a styled HTML file you can print to PDF from your browser
+
 ## Requirements
 
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI installed and configured
-- No other dependencies required
+- No other dependencies required (pandoc optional for PDF/DOCX export)
 
 ## License
 

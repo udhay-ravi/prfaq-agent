@@ -15,6 +15,7 @@ Show the following:
   │ /resume    │ Resume an existing PRFAQ session             │
   │ /status    │ Check progress on current PRFAQ              │
   │ /export    │ Generate final PRFAQ + artifact board        │
+  │ /save-as   │ Export as PDF, Google Doc, or HTML            │
   │ /review    │ Get AI review and quality score              │
   │ /artifacts │ Show kanban board of all artifacts           │
   │ /help      │ Show this help message                       │
@@ -60,6 +61,14 @@ Show the following:
 
   Use /artifacts anytime to see the current board.
 
+  Export Formats:
+  After exporting, use /save-as to convert to other formats:
+  • PDF    — Styled document via pandoc or md-to-pdf
+  • DOCX   — Upload-ready for Google Docs
+  • HTML   — Styled web page with CSS
+  • All    — Generate all formats at once
+  The /export command also prompts for format after export.
+
   Tips for a Great PRFAQ:
   • Be specific about the problem — "users are frustrated" is too vague
   • Describe the solution from the customer's perspective
@@ -80,5 +89,8 @@ Show the following:
   • draft.md           — Working document
   • final-prfaq.md     — Exported final document
   • artifacts-board.md — Kanban board of all artifacts
+  • final-prfaq.pdf    — PDF export (via /save-as)
+  • final-prfaq.docx   — Google Doc export (via /save-as)
+  • final-prfaq.html   — HTML export (via /save-as)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```

@@ -1,0 +1,233 @@
+/* PRFAQ Document Styles — for HTML and PDF export */
+
+:root {
+  --primary: #1a1a2e;
+  --accent: #0f3460;
+  --highlight: #e94560;
+  --bg: #ffffff;
+  --bg-alt: #f8f9fa;
+  --border: #dee2e6;
+  --text: #212529;
+  --text-muted: #6c757d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 30px;
+}
+
+/* Headings */
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 8px 0;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--highlight);
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 40px 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 28px 0 12px 0;
+}
+
+h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin: 20px 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Paragraphs */
+p {
+  margin: 0 0 12px 0;
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Lists */
+ul, ol {
+  margin: 0 0 16px 24px;
+}
+
+li {
+  margin: 4px 0;
+}
+
+/* Blockquotes — Customer quotes */
+blockquote {
+  border-left: 4px solid var(--highlight);
+  background: var(--bg-alt);
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-style: italic;
+  border-radius: 0 4px 4px 0;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 13px;
+}
+
+thead th {
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  text-align: left;
+  padding: 10px 12px;
+}
+
+tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+tbody tr:nth-child(even) {
+  background: var(--bg-alt);
+}
+
+tbody tr:hover {
+  background: #e8ecf0;
+}
+
+/* Code */
+code {
+  background: var(--bg-alt);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", Consolas, monospace;
+  font-size: 13px;
+}
+
+pre {
+  background: var(--bg-alt);
+  padding: 16px;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+pre code {
+  padding: 0;
+  background: none;
+}
+
+/* Horizontal rules — Section dividers */
+hr {
+  border: none;
+  border-top: 2px solid var(--border);
+  margin: 36px 0;
+}
+
+/* Metadata header (YAML frontmatter rendered) */
+.metadata, .frontmatter {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  padding: 16px 20px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Bold — Key terms */
+strong {
+  font-weight: 600;
+}
+
+/* Table of Contents */
+#TOC, .toc {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin: 20px 0 32px 0;
+}
+
+#TOC ul, .toc ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+#TOC li, .toc li {
+  padding: 4px 0;
+}
+
+#TOC a, .toc a {
+  color: var(--accent);
+}
+
+/* Print styles */
+@media print {
+  body {
+    max-width: 100%;
+    padding: 20px;
+    font-size: 12px;
+  }
+
+  h2 {
+    page-break-before: always;
+  }
+
+  h2:first-of-type {
+    page-break-before: avoid;
+  }
+
+  table, blockquote, pre {
+    page-break-inside: avoid;
+  }
+
+  a {
+    color: var(--text);
+  }
+
+  @page {
+    margin: 1in;
+  }
+}
+
+/* FAQ styling */
+p strong:first-child {
+  display: block;
+  margin-top: 12px;
+}
