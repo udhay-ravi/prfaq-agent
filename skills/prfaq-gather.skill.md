@@ -74,7 +74,14 @@ Questions:
 
 ## PHASE 2: AI GENERATION
 
-After Problem and Solution are both confirmed, transition to autonomous generation:
+After Problem and Solution are both confirmed, check for a Style Profile:
+
+1. Read `session.json` and check for `styleProfile`
+2. If a style profile exists (from samples), announce: "I'll generate sections matching your org's PRFAQ style (learned from <N> samples)."
+3. Apply all style profile patterns when generating each section — tone, structure, metrics format, terminology, roadmap conventions, etc.
+4. If no style profile exists, use default generation patterns from the templates.
+
+Then transition to autonomous generation:
 
 **Transition message:**
 ```

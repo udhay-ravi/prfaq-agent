@@ -20,7 +20,12 @@ This is a **Claude Code agent** — not a traditional application. You interact 
    claude
    ```
 
-2. Start a new PRFAQ session:
+2. **(Optional) Add your org's PRFAQs** to `samples/` to customize the generation style:
+   ```
+   cp ~/Documents/my-approved-prfaq.md samples/
+   ```
+
+3. Start a new PRFAQ session:
    ```
    /start
    ```
@@ -84,12 +89,15 @@ prfaq-agent/
 │   ├── export.md
 │   ├── review.md
 │   └── help.md
+├── samples/                     # Drop your org's PRFAQs here
+│   └── README.md                # Instructions for adding samples
 ├── skills/                      # Agent skill definitions
 │   ├── prfaq-gather.skill.md    # Interactive gathering + AI generation
 │   ├── prfaq-draft.skill.md     # Document composition
 │   ├── prfaq-review.skill.md    # Quality review & scoring (7 dimensions)
 │   ├── prfaq-export.skill.md    # Final document export
-│   └── prfaq-artifacts.skill.md # Kanban artifact board generation
+│   ├── prfaq-artifacts.skill.md # Kanban artifact board generation
+│   └── prfaq-samples.skill.md   # Sample PRFAQ loader & style analyzer
 ├── templates/                   # Section templates with guidance
 │   ├── prfaq-template.md        # Master PRFAQ template (12 sections)
 │   ├── section-problem.md
@@ -120,6 +128,31 @@ After export, the agent generates a kanban-style artifact board (`artifacts-boar
 - **Supporting Materials** — executive summary, data sources, glossary
 
 Use `/artifacts` anytime to see the current board.
+
+## Custom Samples (Style Matching)
+
+Drop your organization's existing PRFAQ documents into the `samples/` directory and the agent will automatically learn your style:
+
+```
+samples/
+├── README.md                    ← Instructions
+├── acme-cloudsync-prfaq.md      ← Your approved PRFAQ #1
+├── acme-smartalerts-prfaq.md    ← Your approved PRFAQ #2
+└── acme-databridge-prfaq.md     ← Your approved PRFAQ #3
+```
+
+**What the agent learns from your samples:**
+
+| Aspect | What It Picks Up |
+|--------|------------------|
+| Tone & Voice | Formal vs. casual, technical depth, audience level |
+| Structure | Section ordering, heading depth, custom sections |
+| Metrics | KPI types, target format (absolute vs. relative), timeframes |
+| Roadmap | Phase names, timeline granularity, go/no-go style |
+| Positioning | Framework, messaging conventions, segment definitions |
+| Terminology | Domain jargon, product names, internal terms |
+
+2-3 approved PRFAQs give the best results. The agent stores a Style Profile in `session.json` and applies it to all AI-generated sections.
 
 ## Output
 

@@ -2,6 +2,10 @@ node_modules/
 .DS_Store
 output/*/
 !output/.gitkeep
+samples/*.md
+samples/*.txt
+!samples/README.md
+!samples/.gitkeep
 *.log
 .env
 .env.local

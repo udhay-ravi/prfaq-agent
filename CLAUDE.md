@@ -141,6 +141,7 @@ Using all previous dimensions as context, autonomously write:
 ### Generation Rules (for AI-generated sections)
 
 - Base everything on the user's Problem and Solution inputs
+- **Before generating, check `samples/` for existing PRFAQs** — read `skills/prfaq-samples.skill.md` and apply the style profile to match the org's tone, structure, metrics format, roadmap conventions, and terminology
 - Use web search to find real market data, competitor info, and industry trends
 - Make Evidence data-driven with market sizing and competitive analysis
 - Make Product Positioning specific and actionable for marketing/sales
@@ -190,6 +191,7 @@ This agent uses skill files in the `skills/` directory:
 - `prfaq-review.skill.md` — Reviewing and scoring the PRFAQ quality
 - `prfaq-export.skill.md` — Exporting to the final formatted document
 - `prfaq-artifacts.skill.md` — Generating the kanban artifact board of all produced deliverables
+- `prfaq-samples.skill.md` — Loading and analyzing sample PRFAQs to match org style
 
 ## Templates
 
@@ -197,6 +199,17 @@ Templates in the `templates/` directory provide structure and guidance:
 
 - `prfaq-template.md` — Master document template
 - `section-*.md` — Per-section templates with prompts and examples
+
+## Samples
+
+The `samples/` directory is where users drop their organization's existing PRFAQ documents. When samples are present:
+
+1. The agent reads and analyzes them at `/start` time
+2. Extracts a **Style Profile** (tone, structure, metrics format, roadmap conventions, terminology)
+3. Applies that profile when generating all AI-written sections
+4. Stores the profile in `session.json` under `styleProfile`
+
+This ensures generated content matches the user's organizational voice and conventions. See `skills/prfaq-samples.skill.md` for full details.
 
 ## Key Principles
 

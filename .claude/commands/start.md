@@ -56,7 +56,12 @@ Start a new PRFAQ session.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-7. Begin the interactive gathering process starting with **Dimension 1: Problem Statement**.
+7. **Load Sample PRFAQs (if any):**
+   Read `skills/prfaq-samples.skill.md` and scan the `samples/` directory for existing PRFAQ documents (.md, .txt files excluding README.md).
+   - If samples found: analyze them, build a Style Profile, save to session.json, and announce what was learned
+   - If no samples: proceed with default style and show a tip about adding samples
+
+8. Begin the interactive gathering process starting with **Dimension 1: Problem Statement**.
 
 Read the `skills/prfaq-gather.skill.md` file and follow its instructions for conducting the gathering. Start with the Problem dimension questions.
 
