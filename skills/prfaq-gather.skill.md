@@ -72,7 +72,7 @@ Questions:
 
 ---
 
-## PHASE 2: AI GENERATION
+## PHASE 2: DEEP ANALYSIS SUB-AGENTS + AI GENERATION
 
 After Problem and Solution are both confirmed, check for a Style Profile:
 
@@ -81,7 +81,7 @@ After Problem and Solution are both confirmed, check for a Style Profile:
 3. Apply all style profile patterns when generating each section — tone, structure, metrics format, terminology, roadmap conventions, etc.
 4. If no style profile exists, use default generation patterns from the templates.
 
-Then transition to autonomous generation:
+Then transition to deep analysis and autonomous generation:
 
 **Transition message:**
 ```
@@ -90,31 +90,76 @@ Then transition to autonomous generation:
   Progress: [████░░░░░░░░░░] 2/7 dimensions
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-I now have everything I need from you. I'll now research
-your market and generate the remaining 5 sections:
+I now have everything I need from you. I'll now run
+three deep analysis sub-agents, then generate the
+remaining PRFAQ sections:
 
-  3. Evidence (market & competitive analysis)
+  🔬 Deep Analysis Sub-Agents:
+  ⬚ Market Analysis    → TAM/SAM/SOM, revenue projections
+  ⬚ Competitive Analysis → Landscape, SWOT, feature matrix
+  ⬚ Pricing Evaluation  → Pricing model, tiers, spreadsheet
+
+  📝 Then generate PRFAQ sections:
+  3. Evidence (synthesized from deep analyses)
   4. Product Positioning
   5. Impact Analysis
   6. Roadmap (Private Preview → Public Preview → GA)
   7. Risks & Tradeoffs
 
-Let me start by researching your market...
+Let me start with market research...
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-### Dimension 3: Evidence [AI-GENERATED — Market & Competitive Analysis]
+### Phase 2A: Run Deep Analysis Sub-Agents
+
+Execute the three sub-agents sequentially. Each produces a standalone document (2,000-4,000 words).
+
+**Sub-Agent 1: Market Analysis**
+1. Read `skills/market-analysis.skill.md` and follow its instructions
+2. Produces `output/<slug>/market-analysis.md` with TAM/SAM/SOM, revenue projections, market dynamics
+3. Present summary to user, wait for feedback
+4. Update `session.json` → `subAgents.marketAnalysis`
+5. Mark artifacts MA1-MA6 as done
+
+**Sub-Agent 2: Competitive Analysis**
+1. Read `skills/competitive-analysis.skill.md` and follow its instructions
+2. Produces `output/<slug>/competitive-analysis.md` with landscape map, SWOT, feature matrix, battlecards
+3. Present summary to user, wait for feedback
+4. Update `session.json` → `subAgents.competitiveAnalysis`
+5. Mark artifacts CA1-CA6 as done
+
+**Sub-Agent 3: Pricing Evaluation**
+1. Read `skills/pricing-analysis.skill.md` and follow its instructions
+2. **Important:** This agent asks the user for specific pricing questions and constraints before generating
+3. Produces `output/<slug>/pricing-analysis.md` + `output/<slug>/pricing-model.csv`
+4. Present summary to user, wait for feedback
+5. Update `session.json` → `subAgents.pricingAnalysis`
+6. Mark artifacts PA1-PA7 as done
+
+### Phase 2B: Generate PRFAQ Dimensions
+
+### Dimension 3: Evidence [AI-GENERATED — Synthesized from Sub-Agent Reports]
 
 **Process:**
-1. Use web search to research the market related to the problem and solution
-2. Search for market size, TAM/SAM/SOM, competitors, industry reports, adoption trends
-3. Synthesize into structured Evidence section
+1. Read the completed sub-agent documents: `market-analysis.md`, `competitive-analysis.md`, `pricing-analysis.md`
+2. Read the sub-agent summaries from `session.json` → `subAgents.*.summary`
+3. **Synthesize** (do NOT duplicate) the key findings into a PRFAQ-appropriate Evidence section
 
-**Generate:**
-- **Market Analysis:** TAM/SAM/SOM with sources, growth rate, industry dynamics
-- **Competitive Landscape:** Direct/indirect competitors, feature comparison matrix, whitespace analysis
+**Generate (synthesized from sub-agent outputs):**
+- **Market Analysis Summary:** TAM/SAM/SOM headline numbers, growth rate, key dynamics (from market-analysis.md)
+- **Competitive Landscape Summary:** Top competitors, key differentiators, whitespace (from competitive-analysis.md)
+- **Pricing Context:** Market pricing range, recommended positioning (from pricing-analysis.md)
 - **Customer Evidence:** Pain point narratives, industry benchmarks
 - **Supporting Data:** Adoption statistics, cost-of-problem benchmarks, trend data
+
+**Important:** Keep the PRFAQ Evidence section concise (500-800 words). Point readers to the standalone deep-dive documents for full details:
+```markdown
+> 📊 For the complete analysis, see:
+> - [Market Analysis](market-analysis.md) — Full TAM/SAM/SOM and revenue projections
+> - [Competitive Analysis](competitive-analysis.md) — Detailed competitive evaluation
+> - [Pricing Analysis](pricing-analysis.md) — Pricing model and recommendations
+> - [Pricing Spreadsheet](pricing-model.csv) — Open in Google Sheets
+```
 
 **After generating:** Present and ask for feedback.
 Save, update progress: `[██████░░░░░░░░] 3/7 dimensions complete`
@@ -167,6 +212,9 @@ After each dimension is completed, update the `artifacts` section in `session.js
 
 - When **Problem** completes: Mark [S1] Problem Statement as done. Also mark related sub-artifacts (target persona, workarounds analysis, frequency/severity data) as done.
 - When **Solution** completes: Mark [S2] Solution as done. Also mark sub-artifacts (customer journey, feature list, differentiation, magic moment, customer quote) as done.
+- When **Market Analysis sub-agent** completes: Mark [MA1]-[MA6] as done.
+- When **Competitive Analysis sub-agent** completes: Mark [CA1]-[CA6] as done.
+- When **Pricing Analysis sub-agent** completes: Mark [PA1]-[PA7] as done.
 - When **Evidence** completes: Mark [S3] Evidence, [A1] Market sizing, [A2] Competitive landscape matrix, [A3] Feature comparison, [A4] Customer evidence as done.
 - When **Positioning** completes: Mark [S4] Positioning, [A5] Positioning statement, [A6] Key messaging pillars, [A7] Target segment table as done.
 - When **Impact** completes: Mark [S5] Impact, [P1] Customer impact metrics, [P2] Business impact metrics, [P3] Success KPIs as done.

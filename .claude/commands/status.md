@@ -40,6 +40,11 @@ Show the completion status of the current PRFAQ session.
   ⬚ 7. Risks & Tradeoffs
      → Not yet generated
 
+  📊 Deep Analysis Sub-Agents:
+  ✅ Market Analysis     → market-analysis.md (3,200 words)
+  ✅ Competitive Analysis → competitive-analysis.md (2,800 words)
+  ⬚ Pricing Analysis    → Not started
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   Next Step: Generating Dimension 5 — Impact
   Tip: Use /resume to continue
@@ -48,6 +53,12 @@ Show the completion status of the current PRFAQ session.
 
 4. For each completed dimension, generate a 1-line summary from the captured data in `session.json`.
 
-5. If all dimensions are complete, change the "Next Step" to suggest `/review` or `/export`.
+5. **Show sub-agent status:** Read `subAgents` from session.json and display each with status icon:
+   - ✅ if status is `"complete"` — show filename and word count
+   - 🔄 if status is `"in-progress"` — show "Generating..."
+   - ⬚ if status is `"not-started"` — show "Not started"
+   - For pricing analysis, also show CSV file if complete
 
-6. If a draft.md exists and has content, also show a word count for the current draft.
+6. If all dimensions are complete, change the "Next Step" to suggest `/review` or `/export`.
+
+7. If a draft.md exists and has content, also show a word count for the current draft.

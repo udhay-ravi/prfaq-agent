@@ -1,0 +1,69 @@
+PRICING MODEL: [Product Name]
+Generated: [timestamp]
+
+SECTION: PRICING TIERS
+Tier,Monthly Price,Annual Price,Annual Savings %,Target Segment,Users/Seats Limit,Support Level,SLA
+Free,$0,$0,0%,[Target segment],[Limit],Community,None
+Starter,[Monthly],[Annual],[Savings %],[Target segment],[Limit],Email,99.5%
+Professional,[Monthly],[Annual],[Savings %],[Target segment],[Limit],Priority,99.9%
+Enterprise,Custom,Custom,Negotiated,[Target segment],Unlimited,Dedicated,99.99%
+
+SECTION: FEATURE MAPPING
+Feature,Category,Free,Starter,Professional,Enterprise
+[Feature 1],[Category],Basic,Full,Full,Full
+[Feature 2],[Category],No,Yes,Yes,Yes
+[Feature 3],[Category],No,Limited,Full,Full
+[Feature 4],[Category],No,No,Yes,Yes
+[Feature 5],[Category],No,No,No,Yes
+
+SECTION: REVENUE MODEL - CONSERVATIVE
+Year,New Customers,Total Customers,Avg ACV,New ARR,Total ARR,YoY Growth
+1,[X],[X],$[X],$[X],$[X],—
+2,[X],[X],$[X],$[X],$[X],[X]%
+3,[X],[X],$[X],$[X],$[X],[X]%
+4,[X],[X],$[X],$[X],$[X],[X]%
+5,[X],[X],$[X],$[X],$[X],[X]%
+
+SECTION: REVENUE MODEL - BASE CASE
+Year,New Customers,Total Customers,Avg ACV,New ARR,Total ARR,YoY Growth
+1,[X],[X],$[X],$[X],$[X],—
+2,[X],[X],$[X],$[X],$[X],[X]%
+3,[X],[X],$[X],$[X],$[X],[X]%
+4,[X],[X],$[X],$[X],$[X],[X]%
+5,[X],[X],$[X],$[X],$[X],[X]%
+
+SECTION: REVENUE MODEL - AGGRESSIVE
+Year,New Customers,Total Customers,Avg ACV,New ARR,Total ARR,YoY Growth
+1,[X],[X],$[X],$[X],$[X],—
+2,[X],[X],$[X],$[X],$[X],[X]%
+3,[X],[X],$[X],$[X],$[X],[X]%
+4,[X],[X],$[X],$[X],$[X],[X]%
+5,[X],[X],$[X],$[X],$[X],[X]%
+
+SECTION: COMPETITIVE PRICING
+Competitor,Pricing Model,Free Tier,Starter Monthly,Pro Monthly,Enterprise Monthly,Est Avg ACV
+[Competitor 1],[Model],[Y/N],$[X],$[X],$[X],$[X]K
+[Competitor 2],[Model],[Y/N],$[X],$[X],$[X],$[X]K
+[Competitor 3],[Model],[Y/N],$[X],$[X],$[X],$[X]K
+
+SECTION: MARGIN ANALYSIS
+Cost Component,Per User Monthly,At 1K Users Monthly,At 10K Users Monthly
+Infrastructure,$[X],$[X],$[X]
+Third-party APIs,$[X],$[X],$[X]
+Support,$[X],$[X],$[X]
+Payment Processing,$[X],$[X],$[X]
+Total COGS,$[X],$[X],$[X]
+Gross Margin %,[X]%,[X]%,[X]%
+
+SECTION: UNIT ECONOMICS
+Metric,Value,Target,Status
+CAC,$[X],—,—
+LTV,$[X],—,—
+LTV:CAC Ratio,[X]:1,>3:1,[On Track/At Risk]
+Payback Period,[X] months,<12 months,[On Track/At Risk]
+
+SECTION: PRICE SENSITIVITY ANALYSIS
+Scenario,Price Point,Est Conversion Rate,Year 1 Revenue,Year 3 Revenue,Risk Level,Notes
+[Scenario 1],$[X]/mo,[X]%,$[X]K,$[X]M,[Low/Med/High],[Context]
+[Scenario 2],$[X]/mo,[X]%,$[X]K,$[X]M,[Low/Med/High],[Context]
+[Scenario 3],$[X]/mo,[X]%,$[X]K,$[X]M,[Low/Med/High],[Context]

@@ -35,8 +35,17 @@ Standard press release format: Headline, Subheadline, Opening, Problem paragraph
 #### 4a. Problem Deep-Dive [FROM USER INPUT]
 Target persona, problem description, workarounds, frequency/severity, trends.
 
-#### 4b. Evidence & Validation [AI-GENERATED — Market & Competitive Analysis]
-Market Analysis (TAM/SAM/SOM table), Competitive Landscape (feature comparison matrix), Customer Evidence, Supporting Data.
+#### 4b. Evidence & Validation [AI-GENERATED — Synthesized from Deep Analysis]
+Market Analysis summary (TAM/SAM/SOM headline numbers from market-analysis.md), Competitive Landscape summary (top competitors and key gaps from competitive-analysis.md), Pricing Context summary (market pricing range from pricing-analysis.md), Customer Evidence, Supporting Data.
+
+**Important:** This section is a synthesis — keep it to 500-800 words. Link to the standalone deep-dive documents:
+```markdown
+> 📊 Deep Analysis Documents:
+> - [Market Analysis](market-analysis.md) — Full TAM/SAM/SOM, revenue projections, market dynamics
+> - [Competitive Analysis](competitive-analysis.md) — Landscape map, SWOT, feature matrix, battlecards
+> - [Pricing Analysis](pricing-analysis.md) — Pricing model, tiers, margins, sensitivity analysis
+> - [Pricing Spreadsheet](pricing-model.csv) — Revenue model and pricing tiers (Google Sheets)
+```
 
 #### 4c. Solution Details [FROM USER INPUT]
 Customer journey, feature table, differentiation matrix, magic moment.
@@ -54,10 +63,30 @@ Roadmap table (Private Preview, Public Preview, GA), Dependencies, Phase Transit
 Risk matrix table, Non-goals, Worst-case scenario, Compliance/security.
 
 ### 5. FAQ Section
-External FAQs (7 customer-facing) and Internal FAQs (7 stakeholder-facing), drawing from all dimensions.
+External FAQs (7 customer-facing) and Internal FAQs (7+ stakeholder-facing), drawing from all dimensions.
+
+**Internal FAQs must include these 3 questions synthesized from sub-agent findings:**
+- **"What is our total addressable market and revenue opportunity?"** — Synthesize from market-analysis.md (TAM/SAM/SOM, 5-year revenue projection)
+- **"How do we compare to competitors and where do we win?"** — Synthesize from competitive-analysis.md (key advantages, vulnerabilities, battlecard summary)
+- **"What is the recommended pricing strategy and expected margins?"** — Synthesize from pricing-analysis.md (recommended model, tiers, LTV:CAC, gross margin)
 
 ### 6. Appendix
 Data sources from Evidence research, Related documents, Glossary.
+
+**Appendix B: Deep Analysis Documents**
+List all standalone sub-agent documents with brief descriptions:
+```markdown
+## Appendix B: Deep Analysis Documents
+
+These standalone reports provide in-depth analysis beyond the PRFAQ summary:
+
+| Document | Description | File |
+|----------|-------------|------|
+| Market Analysis | TAM/SAM/SOM, revenue projections, market dynamics | market-analysis.md |
+| Competitive Analysis | Landscape map, SWOT, feature matrix, battlecards | competitive-analysis.md |
+| Pricing Analysis | Pricing model, tiers, margins, sensitivity analysis | pricing-analysis.md |
+| Pricing Spreadsheet | Revenue model, pricing tiers (Google Sheets compatible) | pricing-model.csv |
+```
 
 ## Writing Style Guidelines
 - Customer-first language

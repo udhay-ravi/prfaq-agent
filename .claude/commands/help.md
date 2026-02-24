@@ -11,15 +11,19 @@ Show the following:
   ┌────────────┬─────────────────────────────────────────────┐
   │ Command    │ Description                                 │
   ├────────────┼─────────────────────────────────────────────┤
-  │ /start     │ Begin a new PRFAQ session                   │
-  │ /resume    │ Resume an existing PRFAQ session             │
-  │ /status    │ Check progress on current PRFAQ              │
-  │ /export    │ Generate final PRFAQ + artifact board        │
-  │ /save-as   │ Export as PDF, Google Doc, or HTML            │
-  │ /review    │ Get AI review and quality score              │
-  │ /artifacts │ Show kanban board of all artifacts           │
-  │ /help      │ Show this help message                       │
-  └────────────┴─────────────────────────────────────────────┘
+  │ /start               │ Begin a new PRFAQ session              │
+  │ /resume              │ Resume an existing PRFAQ session        │
+  │ /status              │ Check progress on current PRFAQ         │
+  │ /export              │ Generate final PRFAQ + artifact board   │
+  │ /save-as             │ Export as PDF, Google Doc, or HTML      │
+  │ /review              │ Get AI review and quality score         │
+  │ /artifacts           │ Show kanban board of all artifacts      │
+  │ /market-analysis     │ Run deep market analysis sub-agent      │
+  │ /competitive-analysis│ Run deep competitive analysis sub-agent │
+  │ /pricing-analysis    │ Run pricing evaluation sub-agent        │
+  │ /deep-analysis       │ Run all 3 sub-agents in sequence        │
+  │ /help                │ Show this help message                  │
+  └──────────────────────┴─────────────────────────────────────────┘
 
   The 7 Dimensions:
   ┌────┬──────────────────┬────────────────────────────────┐
@@ -59,7 +63,24 @@ Show the following:
   • FAQ Content (external + internal)
   • Supporting Materials (exec summary, appendix)
 
+  • Market Analysis (TAM/SAM/SOM, revenue projections)
+  • Competitive Analysis (landscape, SWOT, feature matrix)
+  • Pricing Analysis (pricing model, tiers, spreadsheet)
+
   Use /artifacts anytime to see the current board.
+
+  Deep Analysis Sub-Agents:
+  Three specialized agents run deep analyses during Phase 2:
+  • /market-analysis     → TAM/SAM/SOM, revenue projections
+                           Output: market-analysis.md
+  • /competitive-analysis → Landscape, SWOT, feature matrix
+                           Output: competitive-analysis.md
+  • /pricing-analysis    → Pricing model, tiers, sensitivity
+                           Output: pricing-analysis.md + pricing-model.csv
+  • /deep-analysis       → Runs all 3 in sequence
+  These run automatically during PRFAQ generation, or
+  you can run them standalone anytime.
+  The pricing agent asks YOU for specific pricing questions.
 
   Export Formats:
   After exporting, use /save-as to convert to other formats:
@@ -85,8 +106,12 @@ Show the following:
 
   Session Files:
   All your work is saved in output/<product-name>/
-  • session.json       — Progress, data, artifact tracking
-  • draft.md           — Working document
+  • session.json             — Progress, data, artifact tracking
+  • draft.md                 — Working document
+  • market-analysis.md       — Deep market analysis (sub-agent)
+  • competitive-analysis.md  — Deep competitive evaluation (sub-agent)
+  • pricing-analysis.md      — Pricing strategy analysis (sub-agent)
+  • pricing-model.csv        — Pricing spreadsheet (Google Sheets)
   • final-prfaq.md     — Exported final document
   • artifacts-board.md — Kanban board of all artifacts
   • final-prfaq.pdf    — PDF export (via /save-as)

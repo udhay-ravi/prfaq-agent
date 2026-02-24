@@ -57,14 +57,18 @@ This is a **Claude Code agent** — not a traditional application. You interact 
 
 | Command      | Description                                |
 |--------------|-------------------------------------------|
-| `/start`     | Begin a new PRFAQ session                  |
-| `/resume`    | Resume an existing PRFAQ session           |
-| `/status`    | Check progress on current PRFAQ            |
-| `/export`    | Generate final PRFAQ document + artifacts  |
-| `/save-as`   | Export as PDF, Google Doc (DOCX), or HTML  |
-| `/review`    | Get AI review and quality score            |
-| `/artifacts` | Show kanban board of all produced artifacts|
-| `/help`      | Show all commands and tips                 |
+| `/start`               | Begin a new PRFAQ session                         |
+| `/resume`              | Resume an existing PRFAQ session                  |
+| `/status`              | Check progress on current PRFAQ                   |
+| `/export`              | Generate final PRFAQ document + artifacts         |
+| `/save-as`             | Export as PDF, Google Doc (DOCX), or HTML         |
+| `/review`              | Get AI review and quality score                   |
+| `/artifacts`           | Show kanban board of all produced artifacts       |
+| `/market-analysis`     | Run deep market analysis (TAM/SAM/SOM)            |
+| `/competitive-analysis`| Run deep competitive evaluation                   |
+| `/pricing-analysis`    | Run pricing evaluation + spreadsheet              |
+| `/deep-analysis`       | Run all 3 analysis sub-agents in sequence         |
+| `/help`                | Show all commands and tips                        |
 
 ## The 7 Dimensions
 
@@ -90,6 +94,10 @@ prfaq-agent/
 │   ├── export.md
 │   ├── save-as.md
 │   ├── review.md
+│   ├── market-analysis.md
+│   ├── competitive-analysis.md
+│   ├── pricing-analysis.md
+│   ├── deep-analysis.md
 │   └── help.md
 ├── samples/                     # Drop your org's PRFAQs here
 │   └── README.md                # Instructions for adding samples
@@ -100,7 +108,10 @@ prfaq-agent/
 │   ├── prfaq-export.skill.md    # Final document export
 │   ├── prfaq-artifacts.skill.md # Kanban artifact board generation
 │   ├── prfaq-samples.skill.md   # Sample PRFAQ loader & style analyzer
-│   └── prfaq-formats.skill.md   # PDF, DOCX, HTML export formats
+│   ├── prfaq-formats.skill.md   # PDF, DOCX, HTML export formats
+│   ├── market-analysis.skill.md  # Deep market analysis sub-agent
+│   ├── competitive-analysis.skill.md # Deep competitive eval sub-agent
+│   └── pricing-analysis.skill.md # Pricing evaluation sub-agent
 ├── templates/                   # Section templates with guidance
 │   ├── prfaq-template.md        # Master PRFAQ template (12 sections)
 │   ├── section-problem.md
@@ -110,7 +121,8 @@ prfaq-agent/
 │   ├── section-impact.md
 │   ├── section-roadmap.md
 │   ├── section-risks.md
-│   └── prfaq-style.css         # CSS for HTML/PDF export styling
+│   ├── prfaq-style.css         # CSS for HTML/PDF export styling
+│   └── pricing-model-template.csv # Pricing spreadsheet template
 ├── examples/                    # Reference example
 │   └── example-prfaq.md         # Complete example PRFAQ (all 7 dimensions)
 ├── output/                      # Generated PRFAQs (gitignored)
@@ -121,15 +133,18 @@ prfaq-agent/
 
 ## Artifact Board
 
-After export, the agent generates a kanban-style artifact board (`artifacts-board.md`) listing all ~32 artifacts produced during the session, organized into **Done**, **In Progress**, and **Todo** columns:
+After export, the agent generates a kanban-style artifact board (`artifacts-board.md`) listing all ~51 artifacts produced during the session, organized into **Done**, **In Progress**, and **Todo** columns:
 
 - **Core Documents** — session.json, draft.md, final-prfaq.md
 - **PRFAQ Sections** — all 7 dimensions as discrete artifacts
 - **Press Release Components** — headline, body paragraphs, customer quote, capabilities
 - **Analysis Artifacts** — market sizing, competitive matrix, feature comparison, positioning statement, messaging pillars
 - **Planning Artifacts** — impact metrics, roadmap table, go/no-go criteria, risk matrix, non-goals
-- **FAQ Content** — 7 external + 7 internal Q&As
+- **FAQ Content** — 7 external + 7+ internal Q&As
 - **Supporting Materials** — executive summary, data sources, glossary
+- **Market Analysis** — TAM calculation, SAM breakdown, SOM capture, revenue model, drivers & headwinds
+- **Competitive Analysis** — landscape map, feature matrix, SWOT analyses, win/loss framework, strategic recommendations
+- **Pricing Analysis** — pricing document, CSV spreadsheet, benchmarks, revenue model, tier recommendations, margin analysis, sensitivity analysis
 
 Use `/artifacts` anytime to see the current board.
 
@@ -157,6 +172,49 @@ samples/
 | Terminology | Domain jargon, product names, internal terms |
 
 2-3 approved PRFAQs give the best results. The agent stores a Style Profile in `session.json` and applies it to all AI-generated sections.
+
+## Deep Analysis Sub-Agents
+
+During Phase 2, the PRFAQ agent runs three specialized sub-agents that each produce standalone deep-dive documents:
+
+### Market Analysis Agent (`/market-analysis`)
+Produces a 2,000-4,000 word standalone report:
+- TAM calculation (top-down + bottom-up methods)
+- SAM refinement with segment breakdown
+- SOM with year-by-year capture rate analysis
+- 5-year revenue projection model with scenario analysis
+- Market growth drivers and headwinds
+- Adjacent market opportunities
+- **Output:** `market-analysis.md`
+
+### Competitive Analysis Agent (`/competitive-analysis`)
+Produces a 2,000-4,000 word standalone report:
+- Competitive landscape map (direct, indirect, emerging)
+- Deep dive into top 3-5 competitors with SWOT analysis
+- Feature-by-feature comparison matrix (15+ features)
+- Pricing and GTM strategy comparison
+- Win/loss analysis framework with battlecards
+- Strategic positioning recommendations
+- **Output:** `competitive-analysis.md`
+
+### Pricing Evaluation Agent (`/pricing-analysis`)
+Produces a standalone report + Google Sheets-compatible spreadsheet:
+- **Asks YOU** for specific pricing questions and constraints before generating
+- Pricing model evaluation (per-seat, usage-based, tiered, freemium, etc.)
+- Competitive pricing benchmarks
+- Price sensitivity analysis (driven by your questions)
+- Revenue modeling at 3 price points (conservative, base, aggressive)
+- Recommended pricing tiers with feature mapping
+- Margin analysis and unit economics (CAC, LTV, LTV:CAC)
+- **Output:** `pricing-analysis.md` + `pricing-model.csv`
+
+### How They Work Together
+1. Sub-agents run automatically during PRFAQ generation (Phase 2)
+2. Each produces its own standalone document
+3. Key findings are **synthesized** into the PRFAQ Evidence section
+4. Market/competitive/pricing insights are woven into Internal FAQs
+5. Full reports are referenced in the PRFAQ appendix
+6. Run `/deep-analysis` to execute all three manually, or run each individually
 
 ## Output
 

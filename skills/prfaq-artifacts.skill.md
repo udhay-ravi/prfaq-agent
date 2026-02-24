@@ -57,6 +57,31 @@ Each dimension produces a discrete artifact:
 - Data sources appendix
 - Glossary
 
+### Category 8: Market Analysis Artifacts (Sub-Agent)
+- Market Analysis document (market-analysis.md)
+- TAM calculation (top-down + bottom-up)
+- SAM segment breakdown
+- SOM capture rate analysis
+- 5-year revenue projection model
+- Market drivers & headwinds analysis
+
+### Category 9: Competitive Analysis Artifacts (Sub-Agent)
+- Competitive Analysis document (competitive-analysis.md)
+- Competitive landscape map
+- Feature comparison matrix (detailed)
+- Per-competitor SWOT analyses
+- Win/loss analysis framework
+- Strategic positioning recommendations
+
+### Category 10: Pricing Analysis Artifacts (Sub-Agent)
+- Pricing Analysis document (pricing-analysis.md)
+- Pricing model spreadsheet (pricing-model.csv)
+- Competitive pricing benchmarks
+- Revenue model (3 scenarios)
+- Pricing tier recommendations
+- Margin analysis & unit economics
+- Price sensitivity analysis
+
 ## Kanban Board Generation
 
 ### Board Structure
@@ -117,7 +142,7 @@ Determine artifact status from `session.json`:
 
 ### Full Artifact List
 
-Generate these artifacts for a complete PRFAQ (total ~30 artifacts):
+Generate these artifacts for a complete PRFAQ (total ~51 artifacts):
 
 ```
 CORE DOCUMENTS:
@@ -165,12 +190,37 @@ PLANNING ARTIFACTS:
 
 FAQ CONTENT:
   [F1] External FAQs (7 customer-facing)
-  [F2] Internal FAQs (7 stakeholder-facing)
+  [F2] Internal FAQs (7+ stakeholder-facing)
 
 SUPPORTING:
   [X1] Executive summary (100 words)
   [X2] Data sources appendix
   [X3] Glossary of terms
+
+MARKET ANALYSIS (Sub-Agent):
+  [MA1] Market Analysis document (market-analysis.md)
+  [MA2] TAM calculation (top-down + bottom-up)
+  [MA3] SAM segment breakdown
+  [MA4] SOM capture rate analysis
+  [MA5] 5-year revenue projection model
+  [MA6] Market drivers & headwinds
+
+COMPETITIVE ANALYSIS (Sub-Agent):
+  [CA1] Competitive Analysis document (competitive-analysis.md)
+  [CA2] Competitive landscape map
+  [CA3] Feature comparison matrix (detailed)
+  [CA4] Per-competitor SWOT analyses
+  [CA5] Win/loss analysis framework
+  [CA6] Strategic positioning recommendations
+
+PRICING ANALYSIS (Sub-Agent):
+  [PA1] Pricing Analysis document (pricing-analysis.md)
+  [PA2] Pricing model spreadsheet (pricing-model.csv)
+  [PA3] Competitive pricing benchmarks
+  [PA4] Revenue model (3 scenarios)
+  [PA5] Pricing tier recommendations
+  [PA6] Margin analysis & unit economics
+  [PA7] Price sensitivity analysis
 ```
 
 ### Board Display Format
@@ -214,7 +264,7 @@ When showing the board to the user (in the terminal via `/artifacts`), use this 
 │                         │                          │                          │
 └─────────────────────────┴──────────────────────────┴──────────────────────────┘
 
-  Total: 32 artifacts  |  24 done  |  3 in progress  |  5 todo
+  Total: 51 artifacts  |  24 done  |  3 in progress  |  24 todo
   Files: output/<slug>/artifacts-board.md
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -237,16 +287,28 @@ Add an `artifacts` section to session.json that tracks each artifact:
 ```json
 {
   "artifacts": {
-    "total": 32,
+    "total": 51,
     "done": 24,
     "inProgress": 3,
-    "todo": 5,
+    "todo": 24,
     "items": [
       { "id": "D1", "name": "Session data file", "category": "Core Documents", "status": "done", "source": "system", "file": "session.json" },
       { "id": "S1", "name": "Problem Statement", "category": "PRFAQ Sections", "status": "done", "source": "user-input" },
       { "id": "A1", "name": "Market sizing table", "category": "Analysis Artifacts", "status": "done", "source": "ai-generated" },
+      { "id": "MA1", "name": "Market Analysis document", "category": "Market Analysis", "status": "done", "source": "sub-agent", "file": "market-analysis.md" },
+      { "id": "CA1", "name": "Competitive Analysis document", "category": "Competitive Analysis", "status": "done", "source": "sub-agent", "file": "competitive-analysis.md" },
+      { "id": "PA1", "name": "Pricing Analysis document", "category": "Pricing Analysis", "status": "done", "source": "sub-agent", "file": "pricing-analysis.md" },
+      { "id": "PA2", "name": "Pricing model spreadsheet", "category": "Pricing Analysis", "status": "done", "source": "sub-agent", "file": "pricing-model.csv" },
       ...
     ]
   }
 }
 ```
+
+### Sub-Agent Status Rules
+
+For sub-agent artifacts (MA*, CA*, PA*), determine status from `session.json` → `subAgents`:
+
+**Done** ✅ — `subAgents.<agent>.status` is `"complete"` and file exists
+**In Progress** 🔄 — `subAgents.<agent>.status` is `"in-progress"`
+**Todo** ⬚ — `subAgents.<agent>.status` is `"not-started"`
