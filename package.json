@@ -1,0 +1,19 @@
+{
+  "name": "prfaq-agent",
+  "version": "1.0.0",
+  "description": "PRFAQ Agent — Interactive Press Release/FAQ document generator powered by Claude Code",
+  "author": "udhay-ravi",
+  "license": "MIT",
+  "keywords": [
+    "prfaq",
+    "product-management",
+    "claude-code",
+    "agent",
+    "press-release",
+    "working-backwards"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/udhay-ravi/prfaq-agent.git"
+  }
+}
