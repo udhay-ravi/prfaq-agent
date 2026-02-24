@@ -1,0 +1,99 @@
+PRICING MODEL: Markdown Notes App
+Generated: 2026-02-24
+
+SECTION: PRICING TIERS
+Tier,Monthly Price,Annual Price,Annual Savings %,Target Segment,Notes Limit,Boards Limit,Tasks Limit,File Storage,Templates,AI Features,Sync,Support
+Free,$0,$0,0%,All PMs — try everything,50 notes,5 boards,100 items,10 MB,5 starter,No,Basic (manual),Community forum
+Premium,$5,$48/yr,20%,Power PMs — daily users,Unlimited,Unlimited,Unlimited,1 GB,All templates,Yes,Priority (real-time),Email (48hr SLA)
+
+SECTION: FEATURE MAPPING
+Feature,Category,Free,Premium
+Markdown editing,Core,Full,Full
+Rich text WYSIWYG,Core,Full,Full
+To-do lists with sub-tasks,Core,Full (100 item limit),Full (unlimited)
+Kanban boards,Core,Full (5 board limit),Full (unlimited)
+Notes tree / hierarchy,Core,Full,Full
+Tags & full-text search,Organization,Full,Full
+Bi-directional links,Organization,Full,Full
+Offline support,Data,Full,Full
+Cross-device sync,Data,Basic (manual),Priority (real-time)
+Templates,Productivity,5 starter,All PM templates
+File attachments,Data,10 MB total,1 GB total
+AI features,Advanced,No,Summarization / task extraction / suggestions
+Export formats,Advanced,Markdown only,Markdown / PDF / DOCX
+Theme customization,Advanced,Default theme,All themes + custom CSS
+Support,Service,Community forum,Email (48hr SLA)
+
+SECTION: REVENUE MODEL - CONSERVATIVE
+Year,Total Users,Paid Users,Conversion Rate,Avg ACV,ARR,YoY Growth
+1,30000,600,2.0%,$48,$28800,—
+2,100000,3000,3.0%,$48,$144000,400%
+3,220000,8800,4.0%,$50,$440000,206%
+4,350000,17500,5.0%,$52,$910000,107%
+5,450000,27000,6.0%,$54,$1458000,60%
+
+SECTION: REVENUE MODEL - BASE CASE
+Year,Total Users,Paid Users,Conversion Rate,Avg ACV,ARR,YoY Growth
+1,50000,1500,3.0%,$48,$72000,—
+2,180000,7200,4.0%,$50,$360000,400%
+3,420000,21000,5.0%,$52,$1092000,203%
+4,680000,40800,6.0%,$54,$2203200,102%
+5,850000,59500,7.0%,$56,$3332000,51%
+
+SECTION: REVENUE MODEL - AGGRESSIVE
+Year,Total Users,Paid Users,Conversion Rate,Avg ACV,ARR,YoY Growth
+1,80000,3200,4.0%,$48,$153600,—
+2,300000,18000,6.0%,$52,$936000,509%
+3,700000,56000,8.0%,$56,$3136000,235%
+4,1200000,120000,10.0%,$60,$7200000,130%
+5,1800000,216000,12.0%,$64,$13824000,92%
+
+SECTION: COMPETITIVE PRICING
+Competitor,Pricing Model,Free Tier,Free Limits,Paid Monthly,Paid Annual,Est Avg ACV
+Markdown Notes App,Usage-limited freemium,Yes,50 notes / 5 boards / 100 tasks,$5/mo,$48/yr,$48
+Notion,Per-seat,Yes (individual),Unlimited pages (single user),$10-20/seat/mo,$96-192/seat/yr,$150
+Obsidian,Add-on services,Yes (full app),Unlimited (sync costs extra),$4-8/mo add-ons,$48-96/yr,$48
+Todoist,Per-seat,Yes,5 projects / 5 collaborators,$5-8/mo,$48-72/yr,$60
+Logseq,Open-source,Yes,Fully free,$0,$0,$0
+Bear,Subscription,Yes (limited),No sync / basic formatting,$2.99/mo,$29.99/yr,$30
+Anytype,Tiered,Yes,1 GB storage,$5-20/mo,$60-240/yr,$60
+Evernote,Feature-gated,Yes,50 notes / 1 notebook,$15/mo,$130/yr,$130
+
+SECTION: MARGIN ANALYSIS
+Cost Component,Per Free User Monthly,Per Paid User Monthly,At 10K Paid Users Monthly
+Infrastructure (hosting),$0.02,$0.05,$500
+Cloud sync,$0.00,$0.15,$1500
+File storage,$0.01,$0.08,$800
+Third-party APIs (AI),$0.00,$0.20,$2000
+Payment processing,$0.00,$0.15,$1500
+Support,$0.00,$0.05,$500
+Total COGS,$0.03,$0.68,$6800
+Revenue,$0.00,$5.00,$50000
+Gross Profit,$-0.03,$4.32,$43200
+Gross Margin %,N/A,86%,86%
+
+SECTION: UNIT ECONOMICS
+Metric,Value,Target,Status
+CAC (organic/content),$8-15,—,Low via PLG
+CAC (paid acquisition),$25-40,—,If used in aggressive scenario
+LTV (base case),$250,—,5yr at 20% churn
+LTV:CAC Ratio (organic),17-31:1,>3:1,Excellent
+LTV:CAC Ratio (paid),6-10:1,>3:1,Healthy
+LTV:CAC Ratio (blended),5.2:1,>3:1,On Target
+Payback Period (organic),2 months,<12 months,On Target
+Payback Period (paid),6 months,<12 months,On Target
+
+SECTION: PRICE SENSITIVITY ANALYSIS
+Scenario,Price Point,Est Conversion Rate,Year 1 Revenue (50K users),Year 3 Revenue (420K users),Risk Level,Notes
+Lower price,$5/mo ($48/yr),5.0%,$120K,$1.01M,Low,Accessible — impulse purchase for PMs
+Mid-range,$6/mo ($60/yr),4.5%,$135K,$1.13M,Low,Balances volume and ARPU
+Higher price,$8/mo ($72/yr),3.5%,$126K,$1.06M,Medium,More per user but fewer conversions
+Premium positioning,$10/mo ($96/yr),2.5%,$120K,$1.01M,High,Matches Notion Plus — hard sell without team features
+
+SECTION: USAGE LIMIT SENSITIVITY
+Limit Parameter,Too Restrictive,Recommended,Too Generous,Rationale
+Notes,10-20 (Evernote-like),50 notes,500+,2-4 weeks of daily use before hitting limit
+Kanban Boards,1 board,5 boards,20+,Covers 2-3 projects before upgrade needed
+To-Do Items,25 items,100 items,1000+,One sprint's worth of tasks
+File Attachments,None,10 MB total,1 GB+,Enough for a few screenshots
+Templates,1 basic,5 starter,All templates,Enough to evaluate — upgrades for PM-specific ones

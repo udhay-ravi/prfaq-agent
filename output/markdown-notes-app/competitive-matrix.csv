@@ -1,0 +1,57 @@
+COMPETITIVE ANALYSIS: Markdown Notes App
+Generated: 2026-02-24
+
+SECTION: FEATURE COMPARISON MATRIX
+Feature Category,Feature,Markdown Notes App,Notion,Obsidian,Todoist,Logseq,Bear
+Core,Markdown editing,Full,Partial (shortcuts),Full,None,Full,Full
+Core,Rich text WYSIWYG,Full,Full,Partial (plugin),None,Partial,Full
+Core,To-do lists,Full (sub-tasks),Full,Plugin only,Full (best-in-class),Full,Basic checkboxes
+Core,Kanban boards,Built-in,Full (database views),Plugin only,Board view (limited),Basic,None
+Core,Notes tree / hierarchy,Draggable tree,Sidebar + pages,File explorer,Projects only,Outliner,Nested tags
+Organization,Tags,Full,Full,Full,Labels,Full,Nested tags
+Organization,Bi-directional links,Full,Full,Full (backlinks),None,Full,None
+Organization,Search (full-text),Full,Full,Full,Full,Full,Full
+Organization,Graph view,Roadmap,None,Full,None,Full,None
+Templates,PM workflow templates,Built-in (PM-specific),Extensive gallery,Community,Basic,Basic,None
+Data,Local-first / offline,Full,None (cloud-only),Full,Limited offline,Full,Full (iCloud)
+Data,Cross-device sync,Free,Free (cloud),Paid ($4/mo),Free (paid tiers),iCloud/manual,Paid (Pro)
+Platform,Windows,Yes,Yes,Yes,Yes,Yes,No
+Platform,macOS,Yes,Yes,Yes,Yes,Yes,Yes
+Platform,iOS,Yes,Yes,Yes,Yes,Yes,Yes
+Platform,Android,Yes,Yes,Yes,Yes,Yes,No
+Platform,Linux,Yes,Yes (web),Yes,Yes (web),Yes,No
+Platform,Web,Yes,Yes,No,Yes,No,No
+Collaboration,Real-time collaboration,Roadmap,Full,None,Team sharing,None,None
+Collaboration,Shared workspaces,Roadmap,Full,None,Team projects,None,None
+Advanced,AI features,Roadmap,Full (Notion AI),Plugin only,AI Assistant,None,None
+Advanced,Databases,Roadmap,Full,Bases (new),None,Properties,None
+Advanced,API / Integrations,Roadmap,Extensive API,Plugin API,REST API,Plugin API,None
+Advanced,Plugin ecosystem,Roadmap,Limited,1600+ plugins,Integrations,Plugins,None
+Pricing,Free tier completeness,Full product free,Limited (individual),Full (sync extra),Limited (5 projects),Fully free,Limited
+
+SECTION: PRICING COMPARISON
+Competitor,Pricing Model,Free Tier,Starter Monthly,Pro Monthly,Enterprise Monthly,Est Avg ACV
+Markdown Notes App,Freemium,Full product,—,TBD,TBD,$0
+Notion,Per-seat,Individual only,$10/seat,$20/seat,Custom,$150/user/yr
+Obsidian,Add-on services,Full app,Sync $4/mo,Publish $8/mo,—,$48/yr
+Todoist,Per-seat,5 projects limit,$5/mo,$8/mo,—,$60/yr
+Logseq,Open-source,Fully free,—,—,—,$0
+Bear,Subscription,Limited,$2.99/mo,—,—,$30/yr
+Anytype,Tiered,Basic (1GB),$5/mo,$10/mo,$20/mo,$60/yr
+Craft,Tiered,Basic,Varies,Varies,Custom,$60-120/yr
+
+SECTION: GTM COMPARISON
+Aspect,Markdown Notes App,Notion,Obsidian,Todoist,Logseq
+Primary GTM,PLG (free-first),PLG + Enterprise Sales,Community-driven PLG,Freemium PLG,Open-source community
+Sales Cycle,Self-serve,Self-serve → Enterprise AE,Self-serve,Self-serve,Self-serve
+Target Buyer,Product Managers,Team leads / ops managers,Individual knowledge workers,Individual task managers,PKM enthusiasts / developers
+Key Channel,PM communities / Product Hunt,Content marketing / SEO / referrals,Reddit / Discord / YouTube,App stores / SEO / word-of-mouth,GitHub / Reddit / Discord
+Community,Building (PM-focused),Large (100M users),Strong (Discord 100K+ / Reddit 200K+),Moderate (forums),Active (GitHub / Discord)
+
+SECTION: SWOT SUMMARY
+Competitor,Strengths,Weaknesses,Opportunities,Threats
+Notion,"100M users; strong brand; AI driving 50% revenue; deep features","Complex/bloated; no offline; slow with large DBs; steep learning curve","Enterprise expansion; AI-first workflows; IPO","Microsoft Loop; feature fatigue; open-source alternatives"
+Obsidian,"Markdown-native; blazing fast; local-first; 1600+ plugins; profitable without VC","No built-in kanban/tasks; steep learning curve; sync costs money; plugin quality varies","Bases expanding to structured data; team features; enterprise","Our product filling kanban+tasks gap; Notion growth; AI competitors"
+Todoist,"50M+ users; beloved UX; cross-platform; bootstrapped & profitable","No markdown notes; limited kanban; no knowledge mgmt; limited free tier","AI task automation; team expansion","Apple Reminders improving; Notion capturing tasks; our product free alternative"
+Logseq,"Fully open-source; free; privacy-first; active community","Niche audience; performance issues; small team; limited kanban","Growing open-source movement; database features","Obsidian larger ecosystem; no sustainable revenue model"
+Bear,"Apple Design Award; beautiful UI; fast markdown; simple pricing","Apple-only; no kanban; no tasks; limited organization","Apple ecosystem growth; deeper iCloud integration","Apple Notes improving; cross-platform competitors; limited market"

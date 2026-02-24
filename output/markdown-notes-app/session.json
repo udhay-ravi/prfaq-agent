@@ -3,7 +3,7 @@
   "description": "A simple note-taking app that allows product managers to take notes, create to-do lists, and manage kanban boards with sub-tasks and descriptions.",
   "slug": "markdown-notes-app",
   "createdAt": "2026-02-23T00:00:00.000Z",
-  "updatedAt": "2026-02-23T00:00:00.000Z",
+  "updatedAt": "2026-02-24T00:00:00.000Z",
   "status": "exported",
   "exportedAt": "2026-02-23T00:00:00.000Z",
   "currentDimension": 7,
@@ -53,9 +53,39 @@
     "roadmap": { "status": "complete", "source": "ai-generated", "data": { "saved": "in draft.md" } },
     "risks": { "status": "complete", "source": "ai-generated", "data": { "saved": "in draft.md" } }
   },
+  "subAgents": {
+    "marketAnalysis": {
+      "status": "complete",
+      "file": "market-analysis.md",
+      "docxFile": "market-analysis.docx",
+      "wordCount": 2205,
+      "completedAt": "2026-02-24T00:00:00.000Z",
+      "summary": "Bottom-up TAM of $1.06B targeting 15.5M potential users across PMs, adjacent roles, and markdown-native knowledge workers. SAM of $318M after filtering for platform reach, language, and switching willingness. Year 1 SOM of $1.59M at 0.5% market share. Base case projects $9.2M cumulative ARR by Year 5. Five growth drivers: anti-bloat movement, markdown adoption, AI integration, remote work permanence, and PLG distribution. Obsidian ($25M ARR, bootstrapped, 1.5M users) is the most relevant benchmark."
+    },
+    "competitiveAnalysis": {
+      "status": "complete",
+      "file": "competitive-analysis.md",
+      "docxFile": "competitive-analysis.docx",
+      "csvFile": "competitive-matrix.csv",
+      "wordCount": 3703,
+      "completedAt": "2026-02-24T00:00:00.000Z",
+      "summary": "5 direct competitors (Notion, Obsidian, Todoist, Logseq, Bear), 5 indirect, 4 emerging threats analyzed. 25-feature comparison matrix across 6 products. Key finding: no product offers markdown + built-in tasks + built-in kanban at $0. Notion dominates ($500M+ ARR, 100M users) but suffers from bloat and no offline. Obsidian owns markdown-native ($25M ARR) but lacks built-in kanban/tasks. Clear whitespace for a free, lightweight, PM-focused alternative."
+    },
+    "pricingAnalysis": {
+      "status": "complete",
+      "file": "pricing-analysis.md",
+      "docxFile": "pricing-analysis.docx",
+      "csvFile": "pricing-model.csv",
+      "wordCount": 2761,
+      "completedAt": "2026-02-24T00:00:00.000Z",
+      "summary": "Recommended 2-tier freemium: Free (50 notes, 5 boards, 100 tasks) + Premium ($5/mo or $48/yr for unlimited + AI + advanced features). Base case Y3 ARR of $1.09M with 5% conversion. 86% gross margins at scale. LTV:CAC of 5.2:1 (blended). Local-first architecture keeps infrastructure costs at $0.03/user/mo for free users. Launch at $5/mo with early adopter 30% annual discount.",
+      "userQuestions": ["Free with usage limits + premium for all features"],
+      "constraints": ["Core product free with usage limits", "Premium unlocks all features"]
+    }
+  },
   "artifacts": {
-    "total": 38,
-    "done": 38,
+    "total": 51,
+    "done": 51,
     "inProgress": 0,
     "todo": 0,
     "items": [
@@ -96,7 +126,26 @@
       { "id": "F2", "name": "Internal FAQs", "category": "FAQ Content", "status": "done", "source": "ai-generated" },
       { "id": "X1", "name": "Executive summary", "category": "Supporting Materials", "status": "done", "source": "ai-generated" },
       { "id": "X2", "name": "Data sources appendix", "category": "Supporting Materials", "status": "done", "source": "ai-generated" },
-      { "id": "X3", "name": "Glossary of terms", "category": "Supporting Materials", "status": "done", "source": "ai-generated" }
+      { "id": "X3", "name": "Glossary of terms", "category": "Supporting Materials", "status": "done", "source": "ai-generated" },
+      { "id": "MA1", "name": "Market Analysis document", "category": "Market Analysis", "status": "done", "source": "sub-agent", "file": "market-analysis.md" },
+      { "id": "MA2", "name": "TAM calculation (top-down + bottom-up)", "category": "Market Analysis", "status": "done", "source": "sub-agent" },
+      { "id": "MA3", "name": "SAM segment breakdown", "category": "Market Analysis", "status": "done", "source": "sub-agent" },
+      { "id": "MA4", "name": "SOM capture rate analysis", "category": "Market Analysis", "status": "done", "source": "sub-agent" },
+      { "id": "MA5", "name": "5-year revenue projection model", "category": "Market Analysis", "status": "done", "source": "sub-agent" },
+      { "id": "MA6", "name": "Market drivers & headwinds", "category": "Market Analysis", "status": "done", "source": "sub-agent" },
+      { "id": "CA1", "name": "Competitive Analysis document", "category": "Competitive Analysis", "status": "done", "source": "sub-agent", "file": "competitive-analysis.md" },
+      { "id": "CA2", "name": "Competitive landscape map", "category": "Competitive Analysis", "status": "done", "source": "sub-agent" },
+      { "id": "CA3", "name": "Feature comparison matrix (detailed)", "category": "Competitive Analysis", "status": "done", "source": "sub-agent" },
+      { "id": "CA4", "name": "Per-competitor SWOT analyses", "category": "Competitive Analysis", "status": "done", "source": "sub-agent" },
+      { "id": "CA5", "name": "Win/loss analysis framework", "category": "Competitive Analysis", "status": "done", "source": "sub-agent" },
+      { "id": "CA6", "name": "Strategic positioning recommendations", "category": "Competitive Analysis", "status": "done", "source": "sub-agent" },
+      { "id": "PA1", "name": "Pricing Analysis document", "category": "Pricing Analysis", "status": "done", "source": "sub-agent", "file": "pricing-analysis.md" },
+      { "id": "PA2", "name": "Pricing model spreadsheet", "category": "Pricing Analysis", "status": "done", "source": "sub-agent", "file": "pricing-model.csv" },
+      { "id": "PA3", "name": "Competitive pricing benchmarks", "category": "Pricing Analysis", "status": "done", "source": "sub-agent" },
+      { "id": "PA4", "name": "Revenue model (3 scenarios)", "category": "Pricing Analysis", "status": "done", "source": "sub-agent" },
+      { "id": "PA5", "name": "Pricing tier recommendations", "category": "Pricing Analysis", "status": "done", "source": "sub-agent" },
+      { "id": "PA6", "name": "Margin analysis & unit economics", "category": "Pricing Analysis", "status": "done", "source": "sub-agent" },
+      { "id": "PA7", "name": "Price sensitivity analysis", "category": "Pricing Analysis", "status": "done", "source": "sub-agent" }
     ]
   }
 }
