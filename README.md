@@ -2,9 +2,11 @@
 
 An interactive Claude Code agent that guides product managers through creating Amazon-style PRFAQ (Press Release / Frequently Asked Questions) documents.
 
+**You provide the Problem and Solution. The agent generates everything else.**
+
 ## What is a PRFAQ?
 
-A PRFAQ is a product planning document popularized by Amazon's "Working Backwards" process. It starts with a fictional press release announcing the finished product, then works backwards to define the problem, evidence, solution, impact, roadmap, and risks. It forces customer-centric thinking before any code is written.
+A PRFAQ is a product planning document popularized by Amazon's "Working Backwards" process. It starts with a fictional press release announcing the finished product, then works backwards to define the problem, evidence, solution, impact, roadmap, and risks.
 
 ## How It Works
 
@@ -23,23 +25,18 @@ This is a **Claude Code agent** — not a traditional application. You interact 
    /start
    ```
 
-3. The agent will walk you through 6 dimensions, asking targeted questions:
+3. **Phase 1 — You answer questions** about two dimensions:
    - **Problem** — What customer problem are you solving?
-   - **Evidence** — What data proves this problem exists?
    - **Solution** — What's your proposed solution (from the customer's perspective)?
-   - **Impact** — How does this impact the business and customers?
-   - **Roadmap** — What's the phased rollout plan (Private Preview, Public Preview, GA)?
-   - **Risks & Tradeoffs** — What could go wrong and what are you choosing not to do?
 
-4. Check your progress anytime:
-   ```
-   /status
-   ```
+4. **Phase 2 — The agent generates** the remaining five dimensions:
+   - **Evidence** — Market analysis (TAM/SAM/SOM), competitive landscape, industry data
+   - **Product Positioning** — Positioning statement, value prop, messaging pillars, target segments, competitive moat
+   - **Impact** — Business and customer metrics with specific targets
+   - **Roadmap** — Phased rollout plan (Private Preview, Public Preview, GA)
+   - **Risks & Tradeoffs** — Risk matrix with mitigations, non-goals, worst-case scenarios
 
-5. Get an AI review of your PRFAQ quality:
-   ```
-   /review
-   ```
+5. **Phase 3 — Review and refine** each section with your feedback.
 
 6. Export the final document:
    ```
@@ -57,6 +54,18 @@ This is a **Claude Code agent** — not a traditional application. You interact 
 | `/review`  | Get AI review and quality score           |
 | `/help`    | Show all commands and tips                |
 
+## The 7 Dimensions
+
+| # | Dimension | Source | What's Covered |
+|---|-----------|--------|----------------|
+| 1 | **Problem** | You provide | Customer pain point, persona, workarounds |
+| 2 | **Solution** | You provide | Product experience, features, differentiators |
+| 3 | **Evidence** | AI generates | Market size, competitive landscape, industry data |
+| 4 | **Product Positioning** | AI generates | Positioning statement, segments, moat, messaging |
+| 5 | **Impact** | AI generates | Business & customer metrics, success KPIs |
+| 6 | **Roadmap** | AI generates | Private Preview, Public Preview, GA plan |
+| 7 | **Risks & Tradeoffs** | AI generates | Risk matrix, mitigations, non-goals |
+
 ## Project Structure
 
 ```
@@ -70,52 +79,39 @@ prfaq-agent/
 │   ├── review.md
 │   └── help.md
 ├── skills/                      # Agent skill definitions
-│   ├── prfaq-gather.skill.md    # Interactive information gathering
+│   ├── prfaq-gather.skill.md    # Interactive gathering + AI generation
 │   ├── prfaq-draft.skill.md     # Document composition
-│   ├── prfaq-review.skill.md    # Quality review & scoring
+│   ├── prfaq-review.skill.md    # Quality review & scoring (7 dimensions)
 │   └── prfaq-export.skill.md    # Final document export
 ├── templates/                   # Section templates with guidance
-│   ├── prfaq-template.md        # Master PRFAQ template
+│   ├── prfaq-template.md        # Master PRFAQ template (12 sections)
 │   ├── section-problem.md
 │   ├── section-evidence.md
 │   ├── section-solution.md
+│   ├── section-positioning.md   # NEW: Product Positioning template
 │   ├── section-impact.md
 │   ├── section-roadmap.md
 │   └── section-risks.md
 ├── examples/                    # Reference example
-│   └── example-prfaq.md         # Complete example PRFAQ
+│   └── example-prfaq.md         # Complete example PRFAQ (all 7 dimensions)
 ├── output/                      # Generated PRFAQs (gitignored)
 ├── scripts/
 │   └── init-session.sh          # Session initialization script
 └── package.json
 ```
 
-## The 6 Dimensions
-
-### 1. Problem Statement
-Define the specific customer problem, target persona, current workarounds, and frequency/severity. The agent asks probing questions to ensure specificity.
-
-### 2. Evidence
-Back up the problem with quantitative data, customer quotes, competitive analysis, and internal signals. The agent challenges weak evidence.
-
-### 3. Solution
-Describe the solution from the customer's perspective — the journey, key capabilities, differentiation, and the "magic moment."
-
-### 4. Impact
-Quantify business and customer impact with specific metrics and targets. Define how success will be measured.
-
-### 5. Roadmap
-Plan the phased rollout: Private Preview (alpha), Public Preview (beta), and General Availability (GA) — with go/no-go criteria between phases.
-
-### 6. Risks & Tradeoffs
-Honestly assess technical, business, and adoption risks with specific mitigation plans. Define non-goals and worst-case contingencies.
-
 ## Output
 
 The agent produces a complete PRFAQ document in markdown format, including:
 - Executive summary
 - Press release with customer quote
-- Detailed sections for all 6 dimensions
+- Problem deep-dive (from your input)
+- Evidence with real market data and competitive analysis (AI-researched)
+- Solution details (from your input)
+- Product positioning with messaging framework (AI-generated)
+- Impact analysis with specific metrics (AI-generated)
+- Phased roadmap (AI-generated)
+- Risk matrix with mitigations (AI-generated)
 - External FAQs (customer-facing)
 - Internal FAQs (stakeholder-facing)
 - Appendix with data sources

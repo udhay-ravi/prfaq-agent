@@ -1,14 +1,14 @@
 # Skill: PRFAQ Document Drafting
 
-This skill defines how to compose a complete PRFAQ document from gathered session data.
+This skill defines how to compose a complete PRFAQ document from gathered and generated session data.
 
 ## Overview
 
-Transform the raw data gathered across all 6 dimensions into a polished, Amazon-style PRFAQ document. The output should read as a professional product document that could be presented to leadership.
+Transform the user-provided Problem and Solution plus AI-generated Evidence, Product Positioning, Impact, Roadmap, and Risks into a polished, Amazon-style PRFAQ document.
 
 ## Input
 
-Read the session's `session.json` to get all gathered data across the 6 dimensions.
+Read the session's `session.json` to get all data across the 7 dimensions.
 
 ## Document Structure
 
@@ -25,146 +25,50 @@ Status: Draft
 ```
 
 ### 2. Executive Summary
-
-Write a single paragraph (max 100 words) that captures:
-- What the product is
-- Who it's for
-- What problem it solves
-- Why now
-
-This should be understandable by anyone in the company without context.
+Write a single paragraph (max 100 words) covering what, who, why, positioning, and why now.
 
 ### 3. Press Release Section
-
-Write the press release in this exact structure:
-
-**Headline:** A compelling, customer-centric headline (not a feature name). Format: `<Company> Announces <Product> to Help <Customers> <Achieve Outcome>`
-
-**Subheadline:** One sentence expanding on the headline with a key differentiator or metric.
-
-**City, Date —** Opening paragraph (2-3 sentences):
-- What is being launched
-- Who is it for
-- What's the key benefit
-
-**Problem paragraph** (2-3 sentences):
-- Describe the customer pain point
-- Quantify the problem where possible
-- Connect to broader industry trend
-
-**Solution paragraph** (2-3 sentences):
-- How the product solves the problem
-- Key capabilities (high-level, not feature list)
-- The customer experience in a nutshell
-
-**Customer Quote:**
-Use the mock customer quote from the Solution dimension. Format:
-> "Quote text here," said [Name], [Title] at [Company]. "[Second sentence about impact or transformation]."
-
-**How It Works** (3-5 bullet points):
-- Each bullet = one key capability
-- Written from customer's perspective ("You can..." or "Customers can...")
-- Specific, not vague
-
-**Availability paragraph:**
-Reference the roadmap phases — when Private Preview starts, expected GA timeline.
-
-**Call to Action:**
-How interested customers can learn more or sign up.
+Standard press release format: Headline, Subheadline, Opening, Problem paragraph (with market data from Evidence), Solution paragraph, Customer Quote, How It Works bullets, Availability (from Roadmap), Call to Action.
 
 ### 4. Detailed Sections
 
-#### 4a. Problem Deep-Dive
-Expand the press release's problem paragraph into a full section:
-- Target customer persona (detailed)
-- Problem description with specifics
-- Current workarounds and their limitations
-- Frequency and severity analysis
-- Trend analysis (is it getting worse?)
+#### 4a. Problem Deep-Dive [FROM USER INPUT]
+Target persona, problem description, workarounds, frequency/severity, trends.
 
-#### 4b. Evidence & Validation
-Present all evidence in a structured way:
-- **Quantitative Data:** Metrics, surveys, usage data (use a table)
-- **Qualitative Data:** Customer quotes, support themes (use blockquotes)
-- **Market Analysis:** Competitive landscape, market size
-- **Internal Signals:** Feature requests, escalations, lost deals
+#### 4b. Evidence & Validation [AI-GENERATED — Market & Competitive Analysis]
+Market Analysis (TAM/SAM/SOM table), Competitive Landscape (feature comparison matrix), Customer Evidence, Supporting Data.
 
-#### 4c. Solution Details
-Expand on the press release's solution:
-- Detailed customer journey (step-by-step)
-- Feature breakdown (table format: Feature | Description | Customer Benefit)
-- Differentiation matrix (vs. alternatives)
-- The "magic moment" description
+#### 4c. Solution Details [FROM USER INPUT]
+Customer journey, feature table, differentiation matrix, magic moment.
 
-#### 4d. Impact Analysis
-Structure impact in three categories:
-- **Customer Impact** (table: Metric | Current State | Target State | Timeline)
-- **Business Impact** (table: same format)
-- **Strategic Impact** (narrative)
-- **Success Metrics** (numbered list with specific targets)
+#### 4d. Product Positioning [AI-GENERATED]
+Positioning Statement, Category Definition, Value Proposition, Key Messages, Target Segments table, Competitive Moat, Brand Voice & Tone.
 
-#### 4e. Phased Roadmap
-Present as a table:
+#### 4e. Impact Analysis [AI-GENERATED]
+Customer Impact table, Business Impact table, Strategic Impact narrative, Success Metrics list.
 
-| Aspect | Private Preview | Public Preview | GA |
-|--------|----------------|----------------|----|
-| Timeline | Q? 20?? | Q? 20?? | Q? 20?? |
-| Features | ... | ... | ... |
-| Audience | ... | ... | ... |
-| Success Criteria | ... | ... | ... |
-| Go/No-Go | — | ... | ... |
+#### 4f. Phased Roadmap [AI-GENERATED]
+Roadmap table (Private Preview, Public Preview, GA), Dependencies, Phase Transition Criteria.
 
-Include dependencies below the table.
-
-#### 4f. Risks & Mitigations
-Present as a matrix:
-
-| Risk | Category | Likelihood | Impact | Mitigation |
-|------|----------|------------|--------|------------|
-| ... | Technical | High/Med/Low | High/Med/Low | ... |
-
-Include:
-- Explicit non-goals (what we're choosing NOT to do)
-- Worst-case scenario and contingency
-- Security/compliance/regulatory notes
+#### 4g. Risks & Mitigations [AI-GENERATED]
+Risk matrix table, Non-goals, Worst-case scenario, Compliance/security.
 
 ### 5. FAQ Section
-
-Generate two sets of FAQs from the gathered data:
-
-**External FAQs** (customer-facing, 5-7 questions):
-- "What is <Product>?"
-- "Who is this for?"
-- "How is this different from <competitor/alternative>?"
-- "When will this be available?"
-- "How much will it cost?"
-- "What about my existing <workflow/data>?"
-- "How do I get started?"
-
-**Internal FAQs** (stakeholder-facing, 5-7 questions):
-- "Why should we build this now?"
-- "What's the expected revenue/growth impact?"
-- "What are the biggest risks?"
-- "What resources do we need?"
-- "How does this fit our overall strategy?"
-- "What are we explicitly NOT doing?"
-- "What's the competitive response risk?"
+External FAQs (7 customer-facing) and Internal FAQs (7 stakeholder-facing), drawing from all dimensions.
 
 ### 6. Appendix
-
-- Data sources referenced
-- Related documents or prior art
-- Glossary of terms (if any jargon was used)
+Data sources from Evidence research, Related documents, Glossary.
 
 ## Writing Style Guidelines
+- Customer-first language
+- Active voice
+- Specific over vague
+- No jargon
+- Short sentences (max 25 words)
+- Short paragraphs (max 4 sentences)
 
-- **Customer-first language:** "Customers can..." not "We built..."
-- **Active voice:** "The product reduces..." not "Time is reduced by..."
-- **Specific over vague:** "Reduces deployment time from 3 hours to 10 minutes" not "Significantly improves deployment speed"
-- **No jargon:** If a term must be used, define it
-- **Short sentences:** Max 25 words per sentence
-- **Short paragraphs:** Max 4 sentences per paragraph
+## Section Labels
+Mark AI-generated sections with a subtle `*[AI-generated from market research]*` note.
 
 ## Output
-
-Write the complete document to `output/<product-name>/draft.md`, replacing any existing draft.
+Write to `output/<product-name>/draft.md`.

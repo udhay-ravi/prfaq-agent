@@ -14,31 +14,35 @@ Show the completion status of the current PRFAQ session.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   <one-line description>
   Created: <date>  |  Last Updated: <date>
-  Progress: [████████░░░░] 4/6 dimensions
+  Progress: [████████░░░░░░] 4/7 dimensions
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  Dimensions:
+  📝 User Input:
   ✅ 1. Problem Statement
-     → <1-line summary of the core problem captured>
+     → <1-line summary>
 
-  ✅ 2. Evidence
-     → <1-line summary of key evidence captured>
+  ✅ 2. Solution
+     → <1-line summary>
 
-  ✅ 3. Solution
-     → <1-line summary of the proposed solution>
+  🤖 AI Generated:
+  ✅ 3. Evidence (Market & Competitive Analysis)
+     → <1-line summary>
 
-  ✅ 4. Impact
-     → <1-line summary of expected impact>
+  ✅ 4. Product Positioning
+     → <1-line summary>
 
-  ⬚ 5. Roadmap
-     → Not yet started
+  ⬚ 5. Impact
+     → Not yet generated
 
-  ⬚ 6. Risks & Tradeoffs
-     → Not yet started
+  ⬚ 6. Roadmap
+     → Not yet generated
+
+  ⬚ 7. Risks & Tradeoffs
+     → Not yet generated
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Next Step: Continue with Dimension 5 — Roadmap
-  Tip: Use /resume to continue gathering
+  Next Step: Generating Dimension 5 — Impact
+  Tip: Use /resume to continue
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

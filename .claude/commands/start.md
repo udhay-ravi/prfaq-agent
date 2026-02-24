@@ -21,12 +21,13 @@ Start a new PRFAQ session.
   "status": "in-progress",
   "currentDimension": 1,
   "dimensions": {
-    "problem": { "status": "not-started", "data": {} },
-    "evidence": { "status": "not-started", "data": {} },
-    "solution": { "status": "not-started", "data": {} },
-    "impact": { "status": "not-started", "data": {} },
-    "roadmap": { "status": "not-started", "data": {} },
-    "risks": { "status": "not-started", "data": {} }
+    "problem": { "status": "not-started", "source": "user-input", "data": {} },
+    "solution": { "status": "not-started", "source": "user-input", "data": {} },
+    "evidence": { "status": "not-started", "source": "ai-generated", "data": {} },
+    "positioning": { "status": "not-started", "source": "ai-generated", "data": {} },
+    "impact": { "status": "not-started", "source": "ai-generated", "data": {} },
+    "roadmap": { "status": "not-started", "source": "ai-generated", "data": {} },
+    "risks": { "status": "not-started", "source": "ai-generated", "data": {} }
   }
 }
 ```
@@ -40,7 +41,11 @@ Start a new PRFAQ session.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   Product: <name>
   Session: output/<slug>/
-  Progress: [░░░░░░░░░░░░] 0/6 dimensions
+  Progress: [░░░░░░░░░░░░░░] 0/7 dimensions
+
+  📝 You provide: Problem & Solution
+  🤖 I generate: Evidence, Positioning, Impact,
+                  Roadmap, Risks & Tradeoffs
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 

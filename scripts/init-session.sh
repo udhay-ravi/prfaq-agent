@@ -36,12 +36,13 @@ cat > "$SESSION_DIR/session.json" << EOF
   "status": "in-progress",
   "currentDimension": 1,
   "dimensions": {
-    "problem": { "status": "not-started", "data": {} },
-    "evidence": { "status": "not-started", "data": {} },
-    "solution": { "status": "not-started", "data": {} },
-    "impact": { "status": "not-started", "data": {} },
-    "roadmap": { "status": "not-started", "data": {} },
-    "risks": { "status": "not-started", "data": {} }
+    "problem": { "status": "not-started", "source": "user-input", "data": {} },
+    "solution": { "status": "not-started", "source": "user-input", "data": {} },
+    "evidence": { "status": "not-started", "source": "ai-generated", "data": {} },
+    "positioning": { "status": "not-started", "source": "ai-generated", "data": {} },
+    "impact": { "status": "not-started", "source": "ai-generated", "data": {} },
+    "roadmap": { "status": "not-started", "source": "ai-generated", "data": {} },
+    "risks": { "status": "not-started", "source": "ai-generated", "data": {} }
   }
 }
 EOF
@@ -56,7 +57,11 @@ echo "  PRFAQ Session Initialized"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "  Product: $PRODUCT_NAME"
 echo "  Session: $SESSION_DIR/"
-echo "  Progress: [░░░░░░░░░░░░] 0/6 dimensions"
+echo "  Progress: [░░░░░░░░░░░░░░] 0/7 dimensions"
+echo ""
+echo "  You provide: Problem & Solution"
+echo "  AI generates: Evidence, Positioning, Impact,"
+echo "                Roadmap, Risks & Tradeoffs"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 echo "Open this project in Claude Code and run /start to begin gathering."
