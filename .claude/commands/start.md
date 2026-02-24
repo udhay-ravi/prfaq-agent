@@ -28,6 +28,13 @@ Start a new PRFAQ session.
     "impact": { "status": "not-started", "source": "ai-generated", "data": {} },
     "roadmap": { "status": "not-started", "source": "ai-generated", "data": {} },
     "risks": { "status": "not-started", "source": "ai-generated", "data": {} }
+  },
+  "artifacts": {
+    "total": 32,
+    "done": 1,
+    "inProgress": 0,
+    "todo": 31,
+    "items": []
   }
 }
 ```

@@ -43,16 +43,22 @@ This is a **Claude Code agent** — not a traditional application. You interact 
    /export
    ```
 
+7. **View the artifact board** — see all ~32 produced artifacts in a kanban view:
+   ```
+   /artifacts
+   ```
+
 ## Available Commands
 
-| Command    | Description                               |
-|------------|-------------------------------------------|
-| `/start`   | Begin a new PRFAQ session                 |
-| `/resume`  | Resume an existing PRFAQ session          |
-| `/status`  | Check progress on current PRFAQ           |
-| `/export`  | Generate the final PRFAQ document         |
-| `/review`  | Get AI review and quality score           |
-| `/help`    | Show all commands and tips                |
+| Command      | Description                                |
+|--------------|-------------------------------------------|
+| `/start`     | Begin a new PRFAQ session                  |
+| `/resume`    | Resume an existing PRFAQ session           |
+| `/status`    | Check progress on current PRFAQ            |
+| `/export`    | Generate final PRFAQ document + artifacts  |
+| `/review`    | Get AI review and quality score            |
+| `/artifacts` | Show kanban board of all produced artifacts|
+| `/help`      | Show all commands and tips                 |
 
 ## The 7 Dimensions
 
@@ -82,7 +88,8 @@ prfaq-agent/
 │   ├── prfaq-gather.skill.md    # Interactive gathering + AI generation
 │   ├── prfaq-draft.skill.md     # Document composition
 │   ├── prfaq-review.skill.md    # Quality review & scoring (7 dimensions)
-│   └── prfaq-export.skill.md    # Final document export
+│   ├── prfaq-export.skill.md    # Final document export
+│   └── prfaq-artifacts.skill.md # Kanban artifact board generation
 ├── templates/                   # Section templates with guidance
 │   ├── prfaq-template.md        # Master PRFAQ template (12 sections)
 │   ├── section-problem.md
@@ -99,6 +106,20 @@ prfaq-agent/
 │   └── init-session.sh          # Session initialization script
 └── package.json
 ```
+
+## Artifact Board
+
+After export, the agent generates a kanban-style artifact board (`artifacts-board.md`) listing all ~32 artifacts produced during the session, organized into **Done**, **In Progress**, and **Todo** columns:
+
+- **Core Documents** — session.json, draft.md, final-prfaq.md
+- **PRFAQ Sections** — all 7 dimensions as discrete artifacts
+- **Press Release Components** — headline, body paragraphs, customer quote, capabilities
+- **Analysis Artifacts** — market sizing, competitive matrix, feature comparison, positioning statement, messaging pillars
+- **Planning Artifacts** — impact metrics, roadmap table, go/no-go criteria, risk matrix, non-goals
+- **FAQ Content** — 7 external + 7 internal Q&As
+- **Supporting Materials** — executive summary, data sources, glossary
+
+Use `/artifacts` anytime to see the current board.
 
 ## Output
 

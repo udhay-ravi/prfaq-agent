@@ -35,5 +35,10 @@ Write to `output/<product-name>/final-prfaq.md`
 ### Step 5: Update Session
 Set status to "exported" with timestamp.
 
+### Step 6: Generate Artifact Board
+Read `skills/prfaq-artifacts.skill.md` and generate the full kanban artifact board.
+Write it to `output/<product-name>/artifacts-board.md`.
+Update `session.json` with the complete artifacts tracking data — all ~32 artifacts should be in "Done" status after a full export.
+
 ## Output Summary
-Display file path, word count, section count (12), TODO markers, review suggestion.
+Display file path, word count, section count (12), artifact count, TODO markers, and suggest `/artifacts` to view the board.

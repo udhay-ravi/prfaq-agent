@@ -154,9 +154,23 @@ Save, update progress: `[██████████████] 7/7 dimensi
 
 ---
 
+## Artifact Tracking
+
+After each dimension is completed, update the `artifacts` section in `session.json`:
+
+- When **Problem** completes: Mark [S1] Problem Statement as done. Also mark related sub-artifacts (target persona, workarounds analysis, frequency/severity data) as done.
+- When **Solution** completes: Mark [S2] Solution as done. Also mark sub-artifacts (customer journey, feature list, differentiation, magic moment, customer quote) as done.
+- When **Evidence** completes: Mark [S3] Evidence, [A1] Market sizing, [A2] Competitive landscape matrix, [A3] Feature comparison, [A4] Customer evidence as done.
+- When **Positioning** completes: Mark [S4] Positioning, [A5] Positioning statement, [A6] Key messaging pillars, [A7] Target segment table as done.
+- When **Impact** completes: Mark [S5] Impact, [P1] Customer impact metrics, [P2] Business impact metrics, [P3] Success KPIs as done.
+- When **Roadmap** completes: Mark [S6] Roadmap, [P4] Roadmap table, [P5] Go/no-go criteria, [P6] Dependencies list as done.
+- When **Risks** completes: Mark [S7] Risks, [P7] Risk matrix, [P8] Non-goals, [P9] Worst-case contingency as done.
+
+Update the total done/inProgress/todo counts after each dimension.
+
 ## Completion
 
-When all 7 dimensions are complete, show summary with all dimensions listed (Problem, Solution as User Input; Evidence, Product Positioning, Impact, Roadmap, Risks as AI Generated) and suggest /review, /export, or /status.
+When all 7 dimensions are complete, show summary with all dimensions listed (Problem, Solution as User Input; Evidence, Product Positioning, Impact, Roadmap, Risks as AI Generated) and suggest /review, /export, /artifacts, or /status.
 
 ## Handling "Skip" Requests
 

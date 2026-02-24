@@ -1,4 +1,4 @@
-Generate the final PRFAQ document from the current session.
+Generate the final PRFAQ document and artifact board from the current session.
 
 ## Steps
 
@@ -7,16 +7,16 @@ Generate the final PRFAQ document from the current session.
 2. Read the session's `session.json` and check dimension completion status.
 
 3. **Completeness Check:**
-   - If all 6 dimensions are complete, proceed with export.
+   - If all 7 dimensions are complete, proceed with export.
    - If any dimensions are incomplete, display a warning:
      ```
      ⚠️  Warning: The following dimensions are incomplete:
-        ⬚ 5. Roadmap
-        ⬚ 6. Risks & Tradeoffs
+        ⬚ 6. Roadmap
+        ⬚ 7. Risks & Tradeoffs
 
-     A complete PRFAQ requires all 6 dimensions.
+     A complete PRFAQ requires all 7 dimensions.
      Would you like to:
-       (a) Continue gathering — use /resume
+       (a) Continue — use /resume
        (b) Export anyway with incomplete sections marked as [TODO]
      ```
    - If the user chooses to export anyway, mark incomplete sections with `[TODO: This section needs to be completed]`.
@@ -33,18 +33,33 @@ Generate the final PRFAQ document from the current session.
    Read `skills/prfaq-export.skill.md` and follow its instructions to produce the final formatted document.
    Write it to `output/<product-name>/final-prfaq.md`.
 
-7. **Summary:**
+7. **Generate Artifact Board:**
+   Read `skills/prfaq-artifacts.skill.md` and generate the full kanban artifact board.
+   Write it to `output/<product-name>/artifacts-board.md`.
+   Update `session.json` with the artifacts tracking data.
+
+8. **Summary:**
    Display:
    ```
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      PRFAQ Export Complete
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      Product: <name>
-     File: output/<slug>/final-prfaq.md
-     Word Count: <count>
      Quality Score: <X>/5
      Status: Ready for Review
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+     📄 Produced Files:
+     ├── output/<slug>/final-prfaq.md    (<word count> words)
+     ├── output/<slug>/artifacts-board.md (<N> artifacts)
+     ├── output/<slug>/draft.md
+     └── output/<slug>/session.json
+
+     📊 Artifact Board:
+     ✅ Done: <N>  |  🔄 In Progress: <N>  |  ⬚ Todo: <N>
+
+     Run /artifacts to see the full kanban board
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    ```
 
-8. Update `session.json` with `"status": "exported"` and the export timestamp.
+9. Update `session.json` with `"status": "exported"` and the export timestamp.

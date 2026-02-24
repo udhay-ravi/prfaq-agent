@@ -163,17 +163,23 @@ Using all previous dimensions as context, autonomously write:
 - `/start` — Begin a new PRFAQ session
 - `/resume` — Resume an existing PRFAQ (lists available sessions)
 - `/status` — Show completion status of current PRFAQ
-- `/export` — Generate the final PRFAQ document
+- `/export` — Generate the final PRFAQ document + artifact board
 - `/review` — Get an AI review and score of the PRFAQ
+- `/artifacts` — Show kanban board of all produced artifacts
 - `/help` — Show all commands and tips
 
 ## File Management
 
 - All session data lives in `output/<product-name>/`
-- `session.json` tracks progress, answers, and metadata
+- `session.json` tracks progress, answers, metadata, and artifact tracking
 - `draft.md` is the working PRFAQ document
 - `final-prfaq.md` is the exported final document
+- `artifacts-board.md` is the kanban board of all produced artifacts
 - Never overwrite without confirmation
+
+## Artifact Tracking
+
+Every PRFAQ session produces ~32 artifacts across 7 categories: Core Documents, PRFAQ Sections, Press Release Components, Analysis Artifacts, Planning Artifacts, FAQ Content, and Supporting Materials. The agent tracks each artifact's status (Todo, In Progress, Done) and generates a kanban board viewable via `/artifacts`. The board is also auto-generated when `/export` completes.
 
 ## Skills
 
@@ -183,6 +189,7 @@ This agent uses skill files in the `skills/` directory:
 - `prfaq-draft.skill.md` — Composing the full PRFAQ document (including AI-generated sections)
 - `prfaq-review.skill.md` — Reviewing and scoring the PRFAQ quality
 - `prfaq-export.skill.md` — Exporting to the final formatted document
+- `prfaq-artifacts.skill.md` — Generating the kanban artifact board of all produced deliverables
 
 ## Templates
 
