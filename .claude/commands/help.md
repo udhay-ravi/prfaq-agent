@@ -70,14 +70,20 @@ Show the following:
   Use /artifacts anytime to see the current board.
 
   Deep Analysis Sub-Agents:
-  Three specialized agents run deep analyses during Phase 2:
+  Three specialized agents run deep analyses during Phase 2.
+  Each auto-exports docs as PDF + Google Doc (DOCX),
+  and analysis data as Google Sheets (CSV).
+
   • /market-analysis     → TAM/SAM/SOM, revenue projections
-                           Output: market-analysis.md
+       📄 market-analysis.md / .pdf / .docx
   • /competitive-analysis → Landscape, SWOT, feature matrix
-                           Output: competitive-analysis.md
+       📄 competitive-analysis.md / .pdf / .docx
+       📊 competitive-matrix.csv (Google Sheets)
   • /pricing-analysis    → Pricing model, tiers, sensitivity
-                           Output: pricing-analysis.md + pricing-model.csv
+       📄 pricing-analysis.md / .pdf / .docx
+       📊 pricing-model.csv (Google Sheets)
   • /deep-analysis       → Runs all 3 in sequence
+
   These run automatically during PRFAQ generation, or
   you can run them standalone anytime.
   The pricing agent asks YOU for specific pricing questions.
@@ -108,9 +114,10 @@ Show the following:
   All your work is saved in output/<product-name>/
   • session.json             — Progress, data, artifact tracking
   • draft.md                 — Working document
-  • market-analysis.md       — Deep market analysis (sub-agent)
-  • competitive-analysis.md  — Deep competitive evaluation (sub-agent)
-  • pricing-analysis.md      — Pricing strategy analysis (sub-agent)
+  • market-analysis.md/pdf/docx    — Deep market analysis (sub-agent)
+  • competitive-analysis.md/pdf/docx — Deep competitive eval (sub-agent)
+  • competitive-matrix.csv   — Feature matrix for Google Sheets
+  • pricing-analysis.md/pdf/docx   — Pricing strategy (sub-agent)
   • pricing-model.csv        — Pricing spreadsheet (Google Sheets)
   • final-prfaq.md     — Exported final document
   • artifacts-board.md — Kanban board of all artifacts

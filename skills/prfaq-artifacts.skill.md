@@ -198,7 +198,7 @@ SUPPORTING:
   [X3] Glossary of terms
 
 MARKET ANALYSIS (Sub-Agent):
-  [MA1] Market Analysis document (market-analysis.md)
+  [MA1] Market Analysis document (md + PDF + DOCX)
   [MA2] TAM calculation (top-down + bottom-up)
   [MA3] SAM segment breakdown
   [MA4] SOM capture rate analysis
@@ -206,15 +206,15 @@ MARKET ANALYSIS (Sub-Agent):
   [MA6] Market drivers & headwinds
 
 COMPETITIVE ANALYSIS (Sub-Agent):
-  [CA1] Competitive Analysis document (competitive-analysis.md)
+  [CA1] Competitive Analysis document (md + PDF + DOCX)
   [CA2] Competitive landscape map
-  [CA3] Feature comparison matrix (detailed)
+  [CA3] Feature comparison matrix + CSV spreadsheet
   [CA4] Per-competitor SWOT analyses
   [CA5] Win/loss analysis framework
   [CA6] Strategic positioning recommendations
 
 PRICING ANALYSIS (Sub-Agent):
-  [PA1] Pricing Analysis document (pricing-analysis.md)
+  [PA1] Pricing Analysis document (md + PDF + DOCX)
   [PA2] Pricing model spreadsheet (pricing-model.csv)
   [PA3] Competitive pricing benchmarks
   [PA4] Revenue model (3 scenarios)

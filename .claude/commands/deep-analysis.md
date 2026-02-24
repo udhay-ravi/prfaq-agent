@@ -26,7 +26,8 @@ Run all three deep analysis sub-agents in sequence: Market Analysis, Competitive
   ⬚ 3. Pricing Evaluation
      → Pricing model, tiers, revenue modeling, spreadsheet
 
-  Each produces a standalone deep-dive document.
+  Each produces standalone documents (MD + PDF + Google Doc).
+  Analysis data exported as Google Sheets (CSV).
   Synthesized summaries feed into your PRFAQ.
 
   Estimated time: 5-10 minutes total
@@ -60,18 +61,25 @@ Run all three deep analysis sub-agents in sequence: Market Analysis, Competitive
   🔬 Deep Analysis Complete — All 3 Sub-Agents Done
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  ✅ 1. Market Analysis      → market-analysis.md (X words)
+  ✅ 1. Market Analysis      → (X words)
      TAM: $[X]B | SAM: $[X]B | SOM Y1: $[X]M
+     📄 market-analysis.md / .pdf / .docx
 
-  ✅ 2. Competitive Analysis  → competitive-analysis.md (X words)
+  ✅ 2. Competitive Analysis  → (X words)
      [N] competitors analyzed | Key advantage: [X]
+     📄 competitive-analysis.md / .pdf / .docx
+     📊 competitive-matrix.csv (Google Sheets)
 
-  ✅ 3. Pricing Evaluation    → pricing-analysis.md (X words)
+  ✅ 3. Pricing Evaluation    → (X words)
      Recommended: [Model] | Tiers: Free → $X → $X → Enterprise
-     📊 pricing-model.csv (open in Google Sheets)
+     📄 pricing-analysis.md / .pdf / .docx
+     📊 pricing-model.csv (Google Sheets)
 
   📁 All files in: output/<slug>/
   📊 New artifacts: [N] added to board
+
+  📎 Upload DOCX files to Google Drive for collaborative editing
+  📎 Import CSV files into Google Sheets for interactive analysis
 
   These analyses will be synthesized into your PRFAQ
   Evidence section and Internal FAQs.

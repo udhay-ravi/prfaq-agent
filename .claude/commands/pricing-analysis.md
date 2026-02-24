@@ -26,12 +26,19 @@ Run the Pricing Evaluation sub-agent to produce a deep pricing analysis with tie
    - Recommend pricing tiers with feature mapping
    - Analyze margins and unit economics
    - Write `output/<slug>/pricing-analysis.md` (1,500-3,000 words)
+   - Auto-export to PDF and DOCX (if pandoc available)
    - Write `output/<slug>/pricing-model.csv` (Google Sheets-compatible)
    - Present summary and wait for feedback
 
+   **Output files:**
+   - `pricing-analysis.md` — Markdown (always)
+   - `pricing-analysis.pdf` — PDF (if pandoc/md-to-pdf available)
+   - `pricing-analysis.docx` — Google Doc compatible (if pandoc available)
+   - `pricing-model.csv` — Pricing model for Google Sheets/Excel (always)
+
 5. **Update session.json:**
    - Set `subAgents.pricingAnalysis.status` to `"complete"`
-   - Store file paths, word count, timestamp, summary, user questions, and constraints
+   - Store file paths (md, pdf, docx, csv), word count, timestamp, summary, user questions, and constraints
    - Update artifact tracking (mark PA1-PA7 as done)
    - Update `updatedAt` timestamp
 

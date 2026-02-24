@@ -30,9 +30,9 @@ Start a new PRFAQ session.
     "risks": { "status": "not-started", "source": "ai-generated", "data": {} }
   },
   "subAgents": {
-    "marketAnalysis": { "status": "not-started", "file": null, "wordCount": null, "completedAt": null, "summary": null },
-    "competitiveAnalysis": { "status": "not-started", "file": null, "wordCount": null, "completedAt": null, "summary": null },
-    "pricingAnalysis": { "status": "not-started", "file": null, "csvFile": null, "wordCount": null, "completedAt": null, "summary": null, "userQuestions": [], "constraints": [] }
+    "marketAnalysis": { "status": "not-started", "file": null, "pdfFile": null, "docxFile": null, "wordCount": null, "completedAt": null, "summary": null },
+    "competitiveAnalysis": { "status": "not-started", "file": null, "pdfFile": null, "docxFile": null, "csvFile": null, "wordCount": null, "completedAt": null, "summary": null },
+    "pricingAnalysis": { "status": "not-started", "file": null, "pdfFile": null, "docxFile": null, "csvFile": null, "wordCount": null, "completedAt": null, "summary": null, "userQuestions": [], "constraints": [] }
   },
   "artifacts": {
     "total": 51,

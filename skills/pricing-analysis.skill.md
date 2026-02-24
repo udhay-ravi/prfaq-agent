@@ -346,6 +346,48 @@ Scenario,Price Point,Est Conversion Rate,Year 1 Revenue,Year 3 Revenue,Risk Leve
 
 ### Target: 1,500-3,000 words (document) + complete CSV
 
+### Format Export: PDF + Google Doc (DOCX)
+
+After writing the markdown document, automatically convert to PDF and DOCX:
+
+**Step 1: Detect tools**
+Check if `pandoc` is available: `which pandoc`
+
+**Step 2: Generate PDF**
+```bash
+pandoc output/<slug>/pricing-analysis.md \
+  -o output/<slug>/pricing-analysis.pdf \
+  --pdf-engine=xelatex \
+  -V geometry:margin=1in \
+  -V fontsize=11pt \
+  -V mainfont="Helvetica" \
+  --toc \
+  --toc-depth=2 \
+  --metadata title="Pricing Analysis: <Product Name>"
+```
+
+If pandoc is not available, try: `npx md-to-pdf output/<slug>/pricing-analysis.md --dest output/<slug>/pricing-analysis.pdf`
+
+**Step 3: Generate DOCX (Google Doc compatible)**
+```bash
+pandoc output/<slug>/pricing-analysis.md \
+  -o output/<slug>/pricing-analysis.docx \
+  --toc \
+  --toc-depth=2
+```
+
+**Step 4: If no tools available**, inform the user:
+```
+⚠️  To get PDF/DOCX exports, install: brew install pandoc
+    The markdown report is still available at pricing-analysis.md
+```
+
+**Output files:**
+- `pricing-analysis.md` — Markdown (always generated)
+- `pricing-analysis.pdf` — PDF (if pandoc/md-to-pdf available)
+- `pricing-analysis.docx` — Google Doc compatible (if pandoc available)
+- `pricing-model.csv` — Pricing model for Google Sheets/Excel (always generated)
+
 ## Session Update
 
 After generating, update `session.json`:
@@ -354,6 +396,8 @@ After generating, update `session.json`:
   "pricingAnalysis": {
     "status": "complete",
     "file": "pricing-analysis.md",
+    "pdfFile": "pricing-analysis.pdf",
+    "docxFile": "pricing-analysis.docx",
     "csvFile": "pricing-model.csv",
     "wordCount": <actual count>,
     "completedAt": "<ISO timestamp>",
@@ -399,10 +443,17 @@ After writing both files, present the summary:
   Gross Margin: [X]% at scale
   LTV:CAC: [X]:1
   
-  📄 Full report: output/<slug>/pricing-analysis.md
-  📊 Spreadsheet: output/<slug>/pricing-model.csv
-     (Open in Google Sheets or Excel)
+  📄 Documents:
+     output/<slug>/pricing-analysis.md    (Markdown)
+     output/<slug>/pricing-analysis.pdf   (PDF)
+     output/<slug>/pricing-analysis.docx  (Google Doc)
+  📊 Spreadsheet:
+     output/<slug>/pricing-model.csv      (Google Sheets/Excel)
+       → Pricing tiers, revenue models, margins, sensitivity
   📊 Word count: [X] words
+
+  📎 Upload DOCX to Google Drive for collaborative editing
+  📎 Import CSV into Google Sheets for interactive analysis
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Any adjustments to the pricing analysis?

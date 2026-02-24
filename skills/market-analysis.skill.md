@@ -226,6 +226,47 @@ Write to `output/<slug>/market-analysis.md` with this structure:
 
 ### Target: 2,000-4,000 words
 
+### Format Export: PDF + Google Doc (DOCX)
+
+After writing the markdown document, automatically convert to PDF and DOCX:
+
+**Step 1: Detect tools**
+Check if `pandoc` is available: `which pandoc`
+
+**Step 2: Generate PDF**
+```bash
+pandoc output/<slug>/market-analysis.md \
+  -o output/<slug>/market-analysis.pdf \
+  --pdf-engine=xelatex \
+  -V geometry:margin=1in \
+  -V fontsize=11pt \
+  -V mainfont="Helvetica" \
+  --toc \
+  --toc-depth=2 \
+  --metadata title="Market Analysis: <Product Name>"
+```
+
+If pandoc is not available, try: `npx md-to-pdf output/<slug>/market-analysis.md --dest output/<slug>/market-analysis.pdf`
+
+**Step 3: Generate DOCX (Google Doc compatible)**
+```bash
+pandoc output/<slug>/market-analysis.md \
+  -o output/<slug>/market-analysis.docx \
+  --toc \
+  --toc-depth=2
+```
+
+**Step 4: If no tools available**, inform the user:
+```
+⚠️  To get PDF/DOCX exports, install: brew install pandoc
+    The markdown report is still available at market-analysis.md
+```
+
+**Output files:**
+- `market-analysis.md` — Markdown (always generated)
+- `market-analysis.pdf` — PDF (if pandoc/md-to-pdf available)
+- `market-analysis.docx` — Google Doc compatible (if pandoc available)
+
 ## Session Update
 
 After generating, update `session.json`:
@@ -234,6 +275,8 @@ After generating, update `session.json`:
   "marketAnalysis": {
     "status": "complete",
     "file": "market-analysis.md",
+    "pdfFile": "market-analysis.pdf",
+    "docxFile": "market-analysis.docx",
     "wordCount": <actual count>,
     "completedAt": "<ISO timestamp>",
     "summary": "<200-300 word executive summary for PRFAQ Evidence section>"
@@ -244,7 +287,7 @@ After generating, update `session.json`:
 ## Artifact Updates
 
 Mark the following artifacts as done:
-- [MA1] Market Analysis document
+- [MA1] Market Analysis document (md + PDF + DOCX)
 - [MA2] TAM calculation (top-down + bottom-up)
 - [MA3] SAM segment breakdown
 - [MA4] SOM capture rate analysis
@@ -271,9 +314,14 @@ After writing the document, present the executive summary to the user:
   TAM: $[X]B  |  SAM: $[X]B  |  SOM (Y1): $[X]M
   5-Year Revenue: $[X]M (Year 5)
   Growth Drivers: [count]  |  Headwinds: [count]
-  
-  📄 Full report: output/<slug>/market-analysis.md
+
+  📄 Documents:
+     output/<slug>/market-analysis.md    (Markdown)
+     output/<slug>/market-analysis.pdf   (PDF)
+     output/<slug>/market-analysis.docx  (Google Doc)
   📊 Word count: [X] words
+
+  📎 Upload DOCX to Google Drive for collaborative editing
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Any adjustments to the market analysis?

@@ -187,10 +187,11 @@ Using all previous dimensions as context, autonomously write:
 - `draft.md` is the working PRFAQ document
 - `final-prfaq.md` is the exported final document
 - `artifacts-board.md` is the kanban board of all produced artifacts
-- `market-analysis.md` is the deep market analysis report (from sub-agent)
-- `competitive-analysis.md` is the deep competitive evaluation (from sub-agent)
-- `pricing-analysis.md` is the pricing strategy analysis (from sub-agent)
-- `pricing-model.csv` is the Google Sheets-compatible pricing spreadsheet (from sub-agent)
+- `market-analysis.md` / `.pdf` / `.docx` — Deep market analysis report (from sub-agent)
+- `competitive-analysis.md` / `.pdf` / `.docx` — Deep competitive evaluation (from sub-agent)
+- `competitive-matrix.csv` — Feature matrix + pricing for Google Sheets/Excel (from sub-agent)
+- `pricing-analysis.md` / `.pdf` / `.docx` — Pricing strategy analysis (from sub-agent)
+- `pricing-model.csv` — Google Sheets-compatible pricing spreadsheet (from sub-agent)
 - `final-prfaq.pdf` / `final-prfaq.docx` / `final-prfaq.html` — Optional format exports via `/save-as`
 - Never overwrite without confirmation
 
@@ -242,7 +243,8 @@ During Phase 2, the PRFAQ agent orchestrates three deep analysis sub-agents. Eac
 - Builds 5-year revenue projection model with assumptions
 - Identifies market growth drivers, headwinds, and adjacent opportunities
 - Uses web search for real market data with cited sources
-- Output: `market-analysis.md`
+- Auto-exports to PDF + Google Doc (DOCX) via pandoc
+- Output: `market-analysis.md` / `.pdf` / `.docx`
 
 ### Competitive Analysis Agent (`/competitive-analysis`)
 - Maps competitive landscape (direct, indirect, emerging threats)
@@ -250,7 +252,9 @@ During Phase 2, the PRFAQ agent orchestrates three deep analysis sub-agents. Eac
 - Builds feature-by-feature comparison matrix (15+ features)
 - Compares pricing and GTM strategies
 - Creates win/loss framework and battlecards
-- Output: `competitive-analysis.md`
+- Auto-exports to PDF + Google Doc (DOCX) via pandoc
+- Generates Google Sheets-compatible CSV with feature matrix, pricing, GTM, and SWOT data
+- Output: `competitive-analysis.md` / `.pdf` / `.docx` + `competitive-matrix.csv`
 
 ### Pricing Evaluation Agent (`/pricing-analysis`)
 - **Asks user** for specific pricing questions and constraints before generating
@@ -260,7 +264,8 @@ During Phase 2, the PRFAQ agent orchestrates three deep analysis sub-agents. Eac
 - Models revenue at 3 scenarios (conservative, base, aggressive)
 - Recommends pricing tiers with feature mapping
 - Analyzes margins and unit economics (CAC, LTV, LTV:CAC)
-- Output: `pricing-analysis.md` + `pricing-model.csv` (Google Sheets-compatible)
+- Auto-exports to PDF + Google Doc (DOCX) via pandoc
+- Output: `pricing-analysis.md` / `.pdf` / `.docx` + `pricing-model.csv` (Google Sheets-compatible)
 
 ### Integration
 - Sub-agent outputs are **synthesized** into the PRFAQ Evidence section (500-800 words)

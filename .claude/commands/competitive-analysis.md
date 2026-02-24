@@ -25,11 +25,19 @@ Run the Competitive Analysis sub-agent to produce a deep competitive evaluation 
    - Create win/loss analysis framework
    - Write strategic positioning recommendations
    - Write `output/<slug>/competitive-analysis.md` (2,000-4,000 words)
+   - Auto-export to PDF and DOCX (if pandoc available)
+   - Generate `competitive-matrix.csv` for Google Sheets (feature matrix, pricing, GTM, SWOT)
    - Present summary and wait for feedback
+
+   **Output files:**
+   - `competitive-analysis.md` — Markdown (always)
+   - `competitive-analysis.pdf` — PDF (if pandoc/md-to-pdf available)
+   - `competitive-analysis.docx` — Google Doc compatible (if pandoc available)
+   - `competitive-matrix.csv` — Feature matrix + pricing for Google Sheets/Excel
 
 5. **Update session.json:**
    - Set `subAgents.competitiveAnalysis.status` to `"complete"`
-   - Store the file path, word count, timestamp, and 200-300 word summary
+   - Store file paths (md, pdf, docx, csv), word count, timestamp, and 200-300 word summary
    - Update artifact tracking (mark CA1-CA6 as done)
    - Update `updatedAt` timestamp
 

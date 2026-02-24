@@ -253,6 +253,87 @@ Write to `output/<slug>/competitive-analysis.md` with this structure:
 
 ### Target: 2,000-4,000 words
 
+### Format Export: PDF + Google Doc (DOCX)
+
+After writing the markdown document, automatically convert to PDF and DOCX:
+
+**Step 1: Detect tools**
+Check if `pandoc` is available: `which pandoc`
+
+**Step 2: Generate PDF**
+```bash
+pandoc output/<slug>/competitive-analysis.md \
+  -o output/<slug>/competitive-analysis.pdf \
+  --pdf-engine=xelatex \
+  -V geometry:margin=1in \
+  -V fontsize=11pt \
+  -V mainfont="Helvetica" \
+  --toc \
+  --toc-depth=2 \
+  --metadata title="Competitive Analysis: <Product Name>"
+```
+
+If pandoc is not available, try: `npx md-to-pdf output/<slug>/competitive-analysis.md --dest output/<slug>/competitive-analysis.pdf`
+
+**Step 3: Generate DOCX (Google Doc compatible)**
+```bash
+pandoc output/<slug>/competitive-analysis.md \
+  -o output/<slug>/competitive-analysis.docx \
+  --toc \
+  --toc-depth=2
+```
+
+**Step 4: If no tools available**, inform the user:
+```
+⚠️  To get PDF/DOCX exports, install: brew install pandoc
+    The markdown report is still available at competitive-analysis.md
+```
+
+**Output files:**
+- `competitive-analysis.md` — Markdown (always generated)
+- `competitive-analysis.pdf` — PDF (if pandoc/md-to-pdf available)
+- `competitive-analysis.docx` — Google Doc compatible (if pandoc available)
+
+### Format Export: Feature Matrix as CSV (Google Sheets)
+
+Additionally, extract the Feature Comparison Matrix and Pricing Comparison into a standalone CSV for easy spreadsheet viewing:
+
+```bash
+# Write competitive-matrix.csv with the feature comparison data
+```
+
+Write to `output/<slug>/competitive-matrix.csv`:
+```csv
+COMPETITIVE ANALYSIS: <Product Name>
+Generated: <timestamp>
+
+SECTION: FEATURE COMPARISON MATRIX
+Feature Category,Feature,Our Product,[Comp 1],[Comp 2],[Comp 3]
+[Category],[Feature 1],Full,Full,Partial,None
+[Category],[Feature 2],Full,Partial,Full,Full
+
+SECTION: PRICING COMPARISON
+Competitor,Model,Free Tier,Starter,Pro,Enterprise,Est Avg ACV
+Our Product,[Model],[Y/N],$[X],$[X],Custom,$[X]K
+[Comp 1],[Model],[Y/N],$[X],$[X],$[X],$[X]K
+
+SECTION: GTM COMPARISON
+Aspect,Our Product,[Comp 1],[Comp 2],[Comp 3]
+Primary GTM,[Model],[Model],[Model],[Model]
+Sales Cycle,[Length],[Length],[Length],[Length]
+Target Buyer,[Role],[Role],[Role],[Role]
+
+SECTION: SWOT SUMMARY
+Competitor,Strengths,Weaknesses,Opportunities,Threats
+[Comp 1],"[S1]; [S2]","[W1]; [W2]","[O1]; [O2]","[T1]; [T2]"
+```
+
+**Output files:**
+- `competitive-analysis.md` — Markdown (always generated)
+- `competitive-analysis.pdf` — PDF (if pandoc/md-to-pdf available)
+- `competitive-analysis.docx` — Google Doc compatible (if pandoc available)
+- `competitive-matrix.csv` — Feature matrix + pricing for Google Sheets/Excel
+
 ## Session Update
 
 After generating, update `session.json`:
@@ -261,6 +342,9 @@ After generating, update `session.json`:
   "competitiveAnalysis": {
     "status": "complete",
     "file": "competitive-analysis.md",
+    "pdfFile": "competitive-analysis.pdf",
+    "docxFile": "competitive-analysis.docx",
+    "csvFile": "competitive-matrix.csv",
     "wordCount": <actual count>,
     "completedAt": "<ISO timestamp>",
     "summary": "<200-300 word executive summary for PRFAQ Evidence section>"
@@ -271,9 +355,9 @@ After generating, update `session.json`:
 ## Artifact Updates
 
 Mark the following artifacts as done:
-- [CA1] Competitive Analysis document
+- [CA1] Competitive Analysis document (md + PDF + DOCX)
 - [CA2] Competitive landscape map
-- [CA3] Feature comparison matrix
+- [CA3] Feature comparison matrix + CSV spreadsheet
 - [CA4] Per-competitor SWOT analyses
 - [CA5] Win/loss analysis framework
 - [CA6] Strategic positioning recommendations
@@ -300,9 +384,18 @@ After writing the document, present the executive summary to the user:
   Feature Matrix: [N] features compared
   Key Advantage: [Primary competitive edge]
   Key Risk: [Primary competitive threat]
-  
-  📄 Full report: output/<slug>/competitive-analysis.md
+
+  📄 Documents:
+     output/<slug>/competitive-analysis.md    (Markdown)
+     output/<slug>/competitive-analysis.pdf   (PDF)
+     output/<slug>/competitive-analysis.docx  (Google Doc)
+  📊 Spreadsheet:
+     output/<slug>/competitive-matrix.csv     (Google Sheets)
+       → Feature matrix, pricing, GTM, SWOT
   📊 Word count: [X] words
+
+  📎 Upload DOCX to Google Drive for collaborative editing
+  📎 Import CSV into Google Sheets for interactive analysis
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Any adjustments to the competitive analysis?

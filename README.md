@@ -142,9 +142,9 @@ After export, the agent generates a kanban-style artifact board (`artifacts-boar
 - **Planning Artifacts** — impact metrics, roadmap table, go/no-go criteria, risk matrix, non-goals
 - **FAQ Content** — 7 external + 7+ internal Q&As
 - **Supporting Materials** — executive summary, data sources, glossary
-- **Market Analysis** — TAM calculation, SAM breakdown, SOM capture, revenue model, drivers & headwinds
-- **Competitive Analysis** — landscape map, feature matrix, SWOT analyses, win/loss framework, strategic recommendations
-- **Pricing Analysis** — pricing document, CSV spreadsheet, benchmarks, revenue model, tier recommendations, margin analysis, sensitivity analysis
+- **Market Analysis** — TAM calculation, SAM breakdown, SOM capture, revenue model, drivers & headwinds (MD + PDF + DOCX)
+- **Competitive Analysis** — landscape map, feature matrix, SWOT analyses, win/loss framework, strategic recommendations (MD + PDF + DOCX + CSV)
+- **Pricing Analysis** — pricing document, CSV spreadsheet, benchmarks, revenue model, tier recommendations, margin analysis, sensitivity analysis (MD + PDF + DOCX + CSV)
 
 Use `/artifacts` anytime to see the current board.
 
@@ -178,24 +178,24 @@ samples/
 During Phase 2, the PRFAQ agent runs three specialized sub-agents that each produce standalone deep-dive documents:
 
 ### Market Analysis Agent (`/market-analysis`)
-Produces a 2,000-4,000 word standalone report:
+Produces a 2,000-4,000 word standalone report with auto-export:
 - TAM calculation (top-down + bottom-up methods)
 - SAM refinement with segment breakdown
 - SOM with year-by-year capture rate analysis
 - 5-year revenue projection model with scenario analysis
 - Market growth drivers and headwinds
 - Adjacent market opportunities
-- **Output:** `market-analysis.md`
+- **Output:** `market-analysis.md` / `.pdf` / `.docx` (Google Doc)
 
 ### Competitive Analysis Agent (`/competitive-analysis`)
-Produces a 2,000-4,000 word standalone report:
+Produces a 2,000-4,000 word standalone report + analysis spreadsheet:
 - Competitive landscape map (direct, indirect, emerging)
 - Deep dive into top 3-5 competitors with SWOT analysis
 - Feature-by-feature comparison matrix (15+ features)
 - Pricing and GTM strategy comparison
 - Win/loss analysis framework with battlecards
 - Strategic positioning recommendations
-- **Output:** `competitive-analysis.md`
+- **Output:** `competitive-analysis.md` / `.pdf` / `.docx` (Google Doc) + `competitive-matrix.csv` (Google Sheets)
 
 ### Pricing Evaluation Agent (`/pricing-analysis`)
 Produces a standalone report + Google Sheets-compatible spreadsheet:
@@ -206,15 +206,17 @@ Produces a standalone report + Google Sheets-compatible spreadsheet:
 - Revenue modeling at 3 price points (conservative, base, aggressive)
 - Recommended pricing tiers with feature mapping
 - Margin analysis and unit economics (CAC, LTV, LTV:CAC)
-- **Output:** `pricing-analysis.md` + `pricing-model.csv`
+- **Output:** `pricing-analysis.md` / `.pdf` / `.docx` (Google Doc) + `pricing-model.csv` (Google Sheets)
 
 ### How They Work Together
 1. Sub-agents run automatically during PRFAQ generation (Phase 2)
-2. Each produces its own standalone document
-3. Key findings are **synthesized** into the PRFAQ Evidence section
-4. Market/competitive/pricing insights are woven into Internal FAQs
-5. Full reports are referenced in the PRFAQ appendix
-6. Run `/deep-analysis` to execute all three manually, or run each individually
+2. Each produces its own standalone document with auto-export to PDF + Google Doc (DOCX)
+3. Analysis data is exported as Google Sheets-compatible CSV files
+4. Key findings are **synthesized** into the PRFAQ Evidence section
+5. Market/competitive/pricing insights are woven into Internal FAQs
+6. Full reports are referenced in the PRFAQ appendix
+7. Run `/deep-analysis` to execute all three manually, or run each individually
+8. Upload DOCX files to Google Drive for collaborative editing; import CSV into Google Sheets
 
 ## Output
 

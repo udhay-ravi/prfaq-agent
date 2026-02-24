@@ -41,8 +41,8 @@ Show the completion status of the current PRFAQ session.
      → Not yet generated
 
   📊 Deep Analysis Sub-Agents:
-  ✅ Market Analysis     → market-analysis.md (3,200 words)
-  ✅ Competitive Analysis → competitive-analysis.md (2,800 words)
+  ✅ Market Analysis     → .md/.pdf/.docx (3,200 words)
+  ✅ Competitive Analysis → .md/.pdf/.docx + .csv (2,800 words)
   ⬚ Pricing Analysis    → Not started
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -54,10 +54,11 @@ Show the completion status of the current PRFAQ session.
 4. For each completed dimension, generate a 1-line summary from the captured data in `session.json`.
 
 5. **Show sub-agent status:** Read `subAgents` from session.json and display each with status icon:
-   - ✅ if status is `"complete"` — show filename and word count
+   - ✅ if status is `"complete"` — show format files available (.md/.pdf/.docx) and word count
    - 🔄 if status is `"in-progress"` — show "Generating..."
    - ⬚ if status is `"not-started"` — show "Not started"
-   - For pricing analysis, also show CSV file if complete
+   - For competitive analysis, also show CSV file (competitive-matrix.csv) if complete
+   - For pricing analysis, also show CSV file (pricing-model.csv) if complete
 
 6. If all dimensions are complete, change the "Next Step" to suggest `/review` or `/export`.
 

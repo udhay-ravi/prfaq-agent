@@ -112,26 +112,27 @@ Let me start with market research...
 
 ### Phase 2A: Run Deep Analysis Sub-Agents
 
-Execute the three sub-agents sequentially. Each produces a standalone document (2,000-4,000 words).
+Execute the three sub-agents sequentially. Each produces a standalone document (2,000-4,000 words) with auto-export to PDF + Google Doc (DOCX). Analysis data is exported as Google Sheets-compatible CSV.
 
 **Sub-Agent 1: Market Analysis**
 1. Read `skills/market-analysis.skill.md` and follow its instructions
-2. Produces `output/<slug>/market-analysis.md` with TAM/SAM/SOM, revenue projections, market dynamics
+2. Produces `output/<slug>/market-analysis.md` (+ .pdf + .docx) with TAM/SAM/SOM, revenue projections, market dynamics
 3. Present summary to user, wait for feedback
 4. Update `session.json` → `subAgents.marketAnalysis`
 5. Mark artifacts MA1-MA6 as done
 
 **Sub-Agent 2: Competitive Analysis**
 1. Read `skills/competitive-analysis.skill.md` and follow its instructions
-2. Produces `output/<slug>/competitive-analysis.md` with landscape map, SWOT, feature matrix, battlecards
-3. Present summary to user, wait for feedback
-4. Update `session.json` → `subAgents.competitiveAnalysis`
-5. Mark artifacts CA1-CA6 as done
+2. Produces `output/<slug>/competitive-analysis.md` (+ .pdf + .docx) with landscape map, SWOT, feature matrix, battlecards
+3. Also produces `output/<slug>/competitive-matrix.csv` (feature matrix + pricing for Google Sheets)
+4. Present summary to user, wait for feedback
+5. Update `session.json` → `subAgents.competitiveAnalysis`
+6. Mark artifacts CA1-CA6 as done
 
 **Sub-Agent 3: Pricing Evaluation**
 1. Read `skills/pricing-analysis.skill.md` and follow its instructions
 2. **Important:** This agent asks the user for specific pricing questions and constraints before generating
-3. Produces `output/<slug>/pricing-analysis.md` + `output/<slug>/pricing-model.csv`
+3. Produces `output/<slug>/pricing-analysis.md` (+ .pdf + .docx) + `output/<slug>/pricing-model.csv`
 4. Present summary to user, wait for feedback
 5. Update `session.json` → `subAgents.pricingAnalysis`
 6. Mark artifacts PA1-PA7 as done
@@ -155,10 +156,11 @@ Execute the three sub-agents sequentially. Each produces a standalone document (
 **Important:** Keep the PRFAQ Evidence section concise (500-800 words). Point readers to the standalone deep-dive documents for full details:
 ```markdown
 > 📊 For the complete analysis, see:
-> - [Market Analysis](market-analysis.md) — Full TAM/SAM/SOM and revenue projections
-> - [Competitive Analysis](competitive-analysis.md) — Detailed competitive evaluation
-> - [Pricing Analysis](pricing-analysis.md) — Pricing model and recommendations
-> - [Pricing Spreadsheet](pricing-model.csv) — Open in Google Sheets
+> - [Market Analysis](market-analysis.md) — Full TAM/SAM/SOM and revenue projections (also available as PDF/DOCX)
+> - [Competitive Analysis](competitive-analysis.md) — Detailed competitive evaluation (also available as PDF/DOCX)
+> - [Competitive Matrix](competitive-matrix.csv) — Feature matrix & pricing (open in Google Sheets)
+> - [Pricing Analysis](pricing-analysis.md) — Pricing model and recommendations (also available as PDF/DOCX)
+> - [Pricing Spreadsheet](pricing-model.csv) — Full pricing model (open in Google Sheets)
 ```
 
 **After generating:** Present and ask for feedback.
