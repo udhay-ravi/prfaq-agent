@@ -1,0 +1,56 @@
+{
+  "productName": "Markdown Notes App",
+  "description": "A simple note-taking app that allows product managers to take notes, create to-do lists, and manage kanban boards with sub-tasks and descriptions.",
+  "slug": "markdown-notes-app",
+  "createdAt": "2026-02-23T00:00:00.000Z",
+  "updatedAt": "2026-02-23T00:00:00.000Z",
+  "status": "exported",
+  "exportedAt": "2026-02-23T00:00:00.000Z",
+  "currentDimension": 7,
+  "dimensions": {
+    "problem": {
+      "status": "complete",
+      "source": "user-input",
+      "data": {
+        "coreProblem": "Product managers lack a unified, structured tool for thinking, planning, writing, and tracking work. Notes sprawl across unstructured text files and fragmented apps, making it impossible to organize, find, or act on information. Action items from meetings get lost, notes pile up with no structure, and opening a file dumps all notes at once with no way to navigate.",
+        "targetCustomer": "Technical product managers at B2B companies, B2C companies, and freelance PM consultants.",
+        "currentWorkarounds": [
+          "Text editors (unstructured, no organization, all notes open at once)",
+          "Google Keep (not structured enough for PM work)",
+          "Separate paid to-do list apps (fragmented from notes, costs money)"
+        ],
+        "frequencySeverity": "Daily — every meeting, every planning session. Costs ~5 hours/day per PM in context-switching, searching, and fragmented tool usage. Leads to missed action items, lost context, and blocked execution.",
+        "oneLiner": "Product Managers waste 5 hours a day because they lack a single structured tool to think, plan, write, and track — forcing them into fragmented, unstructured apps that cost money and lose context."
+      }
+    },
+    "solution": {
+      "status": "complete",
+      "source": "user-input",
+      "data": {
+        "oneLiner": "A free, lightweight markdown app that unifies notes, to-do lists, and kanban boards in a single workspace — purpose-built for how PMs think, plan, and track work.",
+        "keyCapabilities": [
+          "Markdown notes with rich editing",
+          "To-do lists with sub-tasks and descriptions",
+          "Kanban board to move and manage note cards",
+          "Visual notes tree — editable, draggable hierarchy",
+          "Search, tags, and bi-directional linking",
+          "Templates for common PM workflows",
+          "Offline support — works without internet"
+        ],
+        "differentiation": "Competitors like Notion are powerful but bloated and expensive. Obsidian is markdown-native but lacks built-in kanban and task management. Todoist handles to-dos but not notes. This app is the only free, lightweight tool that combines all three — notes, tasks, and kanban — without the complexity or cost.",
+        "magicMoment": "A PM finishes a meeting, captures notes in markdown, checks off action items as to-dos, drags a card onto their kanban board — all without leaving the app or paying a dime. One tool. Zero friction.",
+        "customerQuote": {
+          "quote": "I used to juggle Google Keep, Todoist, and a folder full of text files. Now everything lives in one place — my notes, my tasks, my board. I stopped paying for three apps and I'm actually more organized.",
+          "name": "Sarah Chen",
+          "title": "VP of Product",
+          "company": "Launchpad"
+        }
+      }
+    },
+    "evidence": { "status": "complete", "source": "ai-generated", "data": { "saved": "in draft.md" } },
+    "positioning": { "status": "complete", "source": "ai-generated", "data": { "saved": "in draft.md" } },
+    "impact": { "status": "complete", "source": "ai-generated", "data": { "saved": "in draft.md" } },
+    "roadmap": { "status": "complete", "source": "ai-generated", "data": { "saved": "in draft.md" } },
+    "risks": { "status": "complete", "source": "ai-generated", "data": { "saved": "in draft.md" } }
+  }
+}
